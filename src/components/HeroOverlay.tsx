@@ -128,11 +128,11 @@ export default function HeroOverlay({ className, progress }: HeroOverlayProps) {
           Let's create something unforgettable together.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 md:gap-6 w-full sm:w-auto px-4 md:px-0">
-          <button className="group relative w-full sm:w-auto overflow-hidden flex items-center justify-center gap-3 bg-luxury-gray text-ivory px-6 md:px-8 py-4 transition-transform duration-300 hover:-translate-y-1">
+          <a href="/collection" className="group relative w-full sm:w-auto overflow-hidden flex items-center justify-center gap-3 bg-luxury-gray text-ivory px-6 md:px-8 py-4 transition-transform duration-300 hover:-translate-y-1 pointer-events-auto">
             <span className="relative z-10 text-xs md:text-sm tracking-widest font-medium">EXPLORE INVITATIONS</span>
             <ArrowRight className="relative z-10 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
             <div className="absolute inset-0 bg-gold translate-y-full transition-transform duration-300 ease-in-out group-hover:translate-y-0" />
-          </button>
+          </a>
           
           <button className="group w-full sm:w-auto flex items-center justify-center gap-3 border border-luxury-gray/20 bg-ivory/50 backdrop-blur-sm text-luxury-gray px-6 md:px-8 py-4 transition-all duration-300 hover:bg-ivory hover:shadow-lg hover:border-gold/30 hover:-translate-y-1">
             <MessageCircle className="w-4 h-4" />

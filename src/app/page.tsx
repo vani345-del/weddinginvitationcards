@@ -1,6 +1,9 @@
 import HeroSection from "@/components/HeroSection";
 import StatsBanner from "@/components/StatsBanner";
 import InvitationShowcase from "@/components/InvitationShowcase";
+import CraftsmanshipSection from "@/components/CraftsmanshipSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
+import FinalCTASection from "@/components/FinalCTASection";
 
 export default function Home() {
   return (
@@ -18,6 +21,15 @@ export default function Home() {
 
       {/* Luxury Invitation Showcase */}
       <InvitationShowcase />
+
+      {/* Craftsmanship & Details Section */}
+      <CraftsmanshipSection />
+
+      {/* Customer Testimonials Section */}
+      <TestimonialsSection />
+
+      {/* Final CTA Section */}
+      <FinalCTASection />
     </main>
   );
 }

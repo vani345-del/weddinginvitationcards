@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const CATEGORIES = [
@@ -11,50 +11,50 @@ const CATEGORIES = [
   "FLORAL",
   "LASER CUT",
   "LUXURY FOIL",
-  "MODERN",
   "ACRYLIC"
 ];
 
-// Placeholder data structure ready for specific category images
-const BASE_CARDS = [
-  { id: 1, src: "https://res.cloudinary.com/dclxwdpki/image/upload/v1789098405/ChatGPT_Image_Sep_11_2026_09_16_13_AM_qdiesg.png", alt: "Classic Invitation", title: "Classic Wedding Invitation", price: "From £1.00" },
-  { id: 2, src: "https://res.cloudinary.com/dclxwdpki/image/upload/v1789098477/ChatGPT_Image_Sep_11_2026_09_17_37_AM_iwedah.png", alt: "Floral Invitation", title: "Floral Elegance Suite", price: "From £1.50" },
-  { id: 3, src: "https://res.cloudinary.com/dclxwdpki/image/upload/v1789098551/ChatGPT_Image_Sep_11_2026_09_18_53_AM_kq7hyg.png", alt: "Laser Cut Invitation", title: "Luxury Laser Cut Design", price: "From £2.00" },
-  { id: 4, src: "https://res.cloudinary.com/dclxwdpki/image/upload/v1789098647/ChatGPT_Image_Sep_11_2026_09_20_26_AM_jayrul.png", alt: "Foil & Embossed Invitation", title: "Premium Foil & Embossed", price: "From £1.80" },
-  { id: 5, src: "https://res.cloudinary.com/dclxwdpki/image/upload/v1789098872/ChatGPT_Image_Sep_11_2026_09_24_04_AM_itoyw3.png", alt: "Acrylic & Modern Invitation", title: "Modern Acrylic Invite", price: "From £2.50" },
+const CARDS = [
+  { id: 1, category: "TRADITIONAL", src: "https://res.cloudinary.com/dclxwdpki/image/upload/v1789098405/ChatGPT_Image_Sep_11_2026_09_16_13_AM_qdiesg.png", alt: "Classic Invitation", title: "Classic Wedding Invitation", price: "From £1.00" },
+  { id: 2, category: "FLORAL", src: "https://res.cloudinary.com/dclxwdpki/image/upload/v1789098477/ChatGPT_Image_Sep_11_2026_09_17_37_AM_iwedah.png", alt: "Floral Invitation", title: "Floral Elegance Suite", price: "From £1.50" },
+  { id: 3, category: "LASER CUT", src: "https://res.cloudinary.com/dclxwdpki/image/upload/v1789098551/ChatGPT_Image_Sep_11_2026_09_18_53_AM_kq7hyg.png", alt: "Laser Cut Invitation", title: "Luxury Laser Cut Design", price: "From £2.00" },
+  { id: 4, category: "LUXURY FOIL", src: "https://res.cloudinary.com/dclxwdpki/image/upload/v1789098647/ChatGPT_Image_Sep_11_2026_09_20_26_AM_jayrul.png", alt: "Foil & Embossed Invitation", title: "Premium Foil & Embossed", price: "From £1.80" },
+  { id: 5, category: "ACRYLIC", src: "https://res.cloudinary.com/dclxwdpki/image/upload/v1789098872/ChatGPT_Image_Sep_11_2026_09_24_04_AM_itoyw3.png", alt: "Acrylic & Modern Invitation", title: "Modern Acrylic Invite", price: "From £2.50" },
 ];
-
-const CATEGORY_DATA: Record<string, typeof BASE_CARDS> = {
-  "ALL": [...BASE_CARDS],
-  "TRADITIONAL": [...BASE_CARDS].reverse(), 
-  "FLORAL": [...BASE_CARDS].slice(1).concat([...BASE_CARDS].slice(0, 1)), 
-  "LASER CUT": [...BASE_CARDS].slice(2).concat([...BASE_CARDS].slice(0, 2)), 
-  "LUXURY FOIL": [...BASE_CARDS].slice(3).concat([...BASE_CARDS].slice(0, 3)), 
-  "MODERN": [...BASE_CARDS].slice(4).concat([...BASE_CARDS].slice(0, 4)), 
-  "ACRYLIC": [...BASE_CARDS].slice(4).concat([...BASE_CARDS].slice(0, 4)), 
-};
 
 export default function InvitationShowcase() {
   const [activeCategory, setActiveCategory] = useState("ALL");
-  const [activeIndex, setActiveIndex] = useState(2); // Center card index (0 to 4)
-  const [cards, setCards] = useState(CATEGORY_DATA["ALL"]);
+  const [activeIndex, setActiveIndex] = useState(2); // Start with Laser Cut in center
 
-  useEffect(() => {
-    // When category changes, update cards array
-    setCards(CATEGORY_DATA[activeCategory] || CATEGORY_DATA["ALL"]);
-    setActiveIndex(2); // Reset to center when category changes
-  }, [activeCategory]);
+  const syncCategoryWithIndex = (index: number) => {
+    setActiveCategory(CARDS[index].category);
+  };
 
   const handleNext = () => {
-    setActiveIndex((prev) => (prev + 1) % 5);
+    const nextIndex = (activeIndex + 1) % 5;
+    setActiveIndex(nextIndex);
+    syncCategoryWithIndex(nextIndex);
   };
 
   const handlePrev = () => {
-    setActiveIndex((prev) => (prev - 1 + 5) % 5);
+    const prevIndex = (activeIndex - 1 + 5) % 5;
+    setActiveIndex(prevIndex);
+    syncCategoryWithIndex(prevIndex);
   };
 
   const handleCardClick = (index: number) => {
     setActiveIndex(index);
+    syncCategoryWithIndex(index);
+  };
+
+  const handleCategoryClick = (cat: string) => {
+    setActiveCategory(cat);
+    if (cat === "ALL") {
+      setActiveIndex(2); // Reset to center
+    } else {
+      const index = CARDS.findIndex(c => c.category === cat);
+      if (index !== -1) setActiveIndex(index);
+    }
   };
 
   // Helper to determine the visual offset for carousel positioning
@@ -66,9 +66,8 @@ export default function InvitationShowcase() {
   };
 
   const getCardStyle = (diff: number) => {
-    // Very wide scattered arrangement - no arrows needed
-    const baseScale = 1.0;
-    const spacing = 55; // very wide spacing
+    // Exact alignment matching reference image (Image 2)
+    const spacing = 85; // Less tight overlap, matching reference
     
     switch (diff) {
       case 0:
@@ -76,62 +75,56 @@ export default function InvitationShowcase() {
         return { 
           x: "0%", 
           y: 0, 
-          scale: 1.12, 
-          rotate: 0,
+          scale: 1.05, 
           zIndex: 30, 
           opacity: 1, 
-          filter: "drop-shadow(0 20px 30px rgba(0,0,0,0.25))" 
+          filter: "drop-shadow(0 20px 30px rgba(0,0,0,0.2))" 
         };
       case -1:
         // Left-center card
         return { 
           x: `${-spacing}%`, 
-          y: "3%", 
-          scale: 0.96, 
-          rotate: -4,
+          y: 0, 
+          scale: 0.95, 
           zIndex: 25, 
           opacity: 1, 
-          filter: "drop-shadow(0 15px 25px rgba(0,0,0,0.18))" 
+          filter: "drop-shadow(0 15px 25px rgba(0,0,0,0.15))" 
         };
       case 1:
         // Right-center card
         return { 
           x: `${spacing}%`, 
-          y: "3%", 
-          scale: 0.96, 
-          rotate: 3,
+          y: 0, 
+          scale: 0.95, 
           zIndex: 25, 
           opacity: 1, 
-          filter: "drop-shadow(0 15px 25px rgba(0,0,0,0.18))" 
+          filter: "drop-shadow(0 15px 25px rgba(0,0,0,0.15))" 
         };
       case -2:
         // Far left card
         return { 
-          x: `${-spacing * 1.9}%`, 
-          y: "6%", 
-          scale: 0.89, 
-          rotate: -6,
+          x: `${-spacing * 2}%`, 
+          y: 0, 
+          scale: 0.85, 
           zIndex: 20, 
-          opacity: 0.95, 
-          filter: "drop-shadow(0 12px 20px rgba(0,0,0,0.15))" 
+          opacity: 1, 
+          filter: "drop-shadow(0 10px 15px rgba(0,0,0,0.1))" 
         };
       case 2:
         // Far right card
         return { 
-          x: `${spacing * 1.9}%`, 
-          y: "6%", 
-          scale: 0.89, 
-          rotate: 5,
+          x: `${spacing * 2}%`, 
+          y: 0, 
+          scale: 0.85, 
           zIndex: 20, 
-          opacity: 0.95, 
-          filter: "drop-shadow(0 12px 20px rgba(0,0,0,0.15))" 
+          opacity: 1, 
+          filter: "drop-shadow(0 10px 15px rgba(0,0,0,0.1))" 
         };
       default:
         return { 
           x: "0%", 
           y: 0, 
           scale: 0, 
-          rotate: 0,
           zIndex: 0, 
           opacity: 0, 
           filter: "drop-shadow(0 0px 0px rgba(0,0,0,0))" 
@@ -140,7 +133,7 @@ export default function InvitationShowcase() {
   };
 
   return (
-    <section className="relative w-full pt-12 md:pt-14 lg:pt-16 pb-8 md:pb-10 overflow-hidden flex items-center justify-center text-[#2A2A2A] bg-[#F9F7F2] min-h-screen max-h-screen">
+    <section className="relative w-full pt-12 md:pt-14 lg:pt-16 pb-12 md:pb-10 overflow-hidden flex items-center justify-center text-[#2A2A2A] bg-[#F9F7F2] min-h-[90vh] md:min-h-screen">
       {/* Background Image */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <Image 
@@ -172,13 +165,13 @@ export default function InvitationShowcase() {
           </p>
         </div>
 
-        {/* Category Navigation */}
-        <nav className="mb-5 md:mb-6 flex flex-wrap justify-center items-center gap-2 px-2 max-w-3xl">
+        {/* Category Navigation - Horizontal scroll on mobile */}
+        <nav className="relative z-50 mb-2 md:mb-6 flex overflow-x-auto justify-start md:justify-center items-center gap-2 md:gap-3 px-4 max-w-full w-full pb-2 md:pb-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
           {CATEGORIES.map((cat) => (
             <button
               key={cat}
-              onClick={() => setActiveCategory(cat)}
-              className={`text-[9px] md:text-[10px] tracking-[0.15em] font-medium uppercase transition-all duration-300 px-4 py-2 md:px-5 md:py-2.5 rounded-full border whitespace-nowrap ${
+              onClick={() => handleCategoryClick(cat)}
+              className={`text-[9px] md:text-[10px] tracking-[0.15em] font-medium uppercase transition-all duration-300 px-5 py-2.5 md:px-5 md:py-2.5 rounded-full border whitespace-nowrap flex-shrink-0 ${
                 activeCategory === cat 
                   ? "bg-[#967C4B] text-white border-[#967C4B]" 
                   : "bg-transparent text-[#5A5A5A] border-[#D1C8B8] hover:border-[#967C4B] hover:text-[#967C4B]"
@@ -189,80 +182,95 @@ export default function InvitationShowcase() {
           ))}
         </nav>
 
-        {/* Main Card Showcase - Much wider, no arrows */}
-        <div className="relative w-full max-w-[1600px] h-[45vh] min-h-[380px] max-h-[500px] flex items-center justify-center mb-5 md:mb-6">
+        {/* Main Card Showcase */}
+        <div className="relative w-full max-w-[1600px] h-[50vh] min-h-[380px] md:min-h-[420px] max-h-[580px] flex items-center justify-center mb-5 md:mb-6">
           
-          {/* Cards wrapped in AnimatePresence for category transition */}
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeCategory} 
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-              className="absolute inset-0 flex items-center justify-center"
-            >
-              {/* Card container - very wide scattered row */}
-              <div className="relative w-full h-full flex justify-center items-center">
-                {cards.map((card, index) => {
-                  const diff = getOffset(index);
-                  const style = getCardStyle(diff);
-                  const isCenter = diff === 0;
-                  
-                  // Hide far cards on mobile/tablet
-                  const shouldHide = 
-                    (typeof window !== 'undefined' && window.innerWidth < 768 && Math.abs(diff) > 1) ||
-                    (typeof window !== 'undefined' && window.innerWidth >= 768 && window.innerWidth < 1024 && Math.abs(diff) > 1);
+          {/* Left Navigation Arrow */}
+          <button 
+            onClick={handlePrev}
+            className="absolute left-2 sm:left-4 lg:left-[12%] top-1/2 -translate-y-1/2 z-40 bg-white/90 p-2.5 md:p-3 rounded-full shadow-md hover:bg-white hover:scale-105 transition-all"
+          >
+            <ChevronLeft className="w-4 h-4 md:w-5 md:h-5 text-[#4A4A4A]" />
+          </button>
 
-                  return (
-                    <motion.div
-                      key={card.id}
-                      onClick={() => handleCardClick(index)}
-                      initial={false}
-                      animate={{ 
-                        x: style.x, 
-                        y: style.y, 
-                        scale: shouldHide ? 0 : style.scale,
-                        rotate: style.rotate,
-                        opacity: shouldHide ? 0 : style.opacity,
-                        filter: style.filter
-                      }}
-                      whileHover={isCenter ? { 
-                        scale: 1.15, 
-                        y: -12,
-                        rotate: 0,
-                        filter: "drop-shadow(0 25px 35px rgba(0,0,0,0.3))"
-                      } : {
-                        scale: shouldHide ? 0 : style.scale * 1.05,
-                        y: -8,
-                        rotate: style.rotate * 0.7
-                      }}
-                      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                      style={{ originY: 0.5, zIndex: style.zIndex }}
-                      className={`absolute w-[160px] sm:w-[190px] md:w-[240px] lg:w-[280px] aspect-[2/3] transform-gpu ${isCenter ? 'cursor-default' : 'cursor-pointer'}`}
-                    >
-                      <div className="relative w-full h-full">
-                        <Image 
-                          src={card.src} 
-                          alt={card.alt} 
-                          fill 
-                          className="object-contain mix-blend-multiply" 
-                          priority={isCenter}
-                          sizes="(max-width: 640px) 160px, (max-width: 768px) 190px, (max-width: 1024px) 240px, 280px"
-                        />
-                      </div>
-                    </motion.div>
-                  );
-                })}
-              </div>
-            </motion.div>
-          </AnimatePresence>
+          {/* Right Navigation Arrow */}
+          <button 
+            onClick={handleNext}
+            className="absolute right-2 sm:right-4 lg:right-[12%] top-1/2 -translate-y-1/2 z-40 bg-white/90 p-2.5 md:p-3 rounded-full shadow-md hover:bg-white hover:scale-105 transition-all"
+          >
+            <ChevronRight className="w-4 h-4 md:w-5 md:h-5 text-[#4A4A4A]" />
+          </button>
+
+          {/* Card container */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="relative w-full h-full flex justify-center items-center">
+              {CARDS.map((card, index) => {
+                const diff = getOffset(index);
+                const spacing = 65; 
+                
+                let style = { x: "0%", y: 0, scale: 0, zIndex: 0, opacity: 0, filter: "drop-shadow(0 0px 0px rgba(0,0,0,0))" };
+                if (diff === 0) {
+                  style = { x: "0%", y: 0, scale: 1.05, zIndex: 30, opacity: 1, filter: "drop-shadow(0 20px 30px rgba(0,0,0,0.2))" };
+                } else if (diff === -1) {
+                  style = { x: `${-spacing}%`, y: 0, scale: 0.95, zIndex: 25, opacity: 1, filter: "drop-shadow(0 15px 25px rgba(0,0,0,0.15))" };
+                } else if (diff === 1) {
+                  style = { x: `${spacing}%`, y: 0, scale: 0.95, zIndex: 25, opacity: 1, filter: "drop-shadow(0 15px 25px rgba(0,0,0,0.15))" };
+                } else if (diff === -2) {
+                  style = { x: `${-spacing * 1.9}%`, y: 0, scale: 0.85, zIndex: 20, opacity: 1, filter: "drop-shadow(0 10px 15px rgba(0,0,0,0.1))" };
+                } else if (diff === 2) {
+                  style = { x: `${spacing * 1.9}%`, y: 0, scale: 0.85, zIndex: 20, opacity: 1, filter: "drop-shadow(0 10px 15px rgba(0,0,0,0.1))" };
+                }
+
+                const isCenter = diff === 0;
+                
+                // Hide far cards on mobile screens
+                const shouldHide = typeof window !== 'undefined' && window.innerWidth < 640 && Math.abs(diff) > 1;
+
+                return (
+                  <motion.div
+                    key={card.id}
+                    onClick={() => handleCardClick(index)}
+                    initial={false}
+                    animate={{ 
+                      x: style.x, 
+                      y: style.y, 
+                      scale: shouldHide ? 0 : style.scale,
+                      opacity: shouldHide ? 0 : style.opacity,
+                      filter: style.filter
+                    }}
+                    whileHover={isCenter ? { 
+                      scale: 1.10, 
+                      y: -8,
+                      filter: "drop-shadow(0 30px 40px rgba(0,0,0,0.25))"
+                    } : {
+                      scale: shouldHide ? 0 : style.scale * 1.03,
+                      y: -5
+                    }}
+                    transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                    style={{ originY: 0.5, zIndex: style.zIndex }}
+                    className={`absolute w-[210px] sm:w-[240px] md:w-[280px] lg:w-[330px] aspect-[2/3] transform-gpu ${isCenter ? 'cursor-default' : 'cursor-pointer'}`}
+                  >
+                    <div className="relative w-full h-full">
+                      <Image 
+                        src={card.src} 
+                        alt={card.alt} 
+                        fill 
+                        className="object-contain" 
+                        priority={isCenter}
+                        sizes="(max-width: 640px) 210px, (max-width: 768px) 240px, (max-width: 1024px) 280px, 330px"
+                      />
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
         </div>
 
         {/* Product Info below Center Card */}
         <AnimatePresence mode="wait">
           <motion.div 
-            key={cards[activeIndex]?.id}
+            key={CARDS[activeIndex]?.id}
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
@@ -270,14 +278,14 @@ export default function InvitationShowcase() {
             className="flex flex-col items-center z-20"
           >
             <span className="text-[9px] md:text-[10px] font-semibold tracking-[0.25em] text-[#5A5A5A] uppercase mb-2 text-center px-4">
-              {cards[activeIndex]?.title || "LUXURY LASER CUT DESIGN"}
+              {CARDS[activeIndex]?.title || "LUXURY LASER CUT DESIGN"}
             </span>
             <span className="font-serif text-2xl md:text-3xl lg:text-3xl text-[#1A1A1A] mb-4">
-              {cards[activeIndex]?.price || "From £2.00"}
+              {CARDS[activeIndex]?.price || "From £2.00"}
             </span>
-            <button className="bg-[#967C4B] text-white text-[10px] font-medium tracking-[0.15em] uppercase px-6 py-2.5 md:px-7 md:py-3 rounded-full hover:bg-[#7a643b] transition-colors flex items-center gap-2 shadow-sm">
+            <a href="/collection" className="bg-[#967C4B] text-white text-[10px] font-medium tracking-[0.15em] uppercase px-6 py-2.5 md:px-7 md:py-3 rounded-full hover:bg-[#7a643b] transition-colors flex items-center gap-2 shadow-sm">
               VIEW DESIGN <span className="text-xs font-light">&rarr;</span>
-            </button>
+            </a>
           </motion.div>
         </AnimatePresence>
 

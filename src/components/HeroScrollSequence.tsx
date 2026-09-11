@@ -27,22 +27,35 @@ export default function HeroScrollSequence({ className, children, progress }: He
 
   // Preload images
   useEffect(() => {
-    const loadedImages: HTMLImageElement[] = [];
-    let loadedCount = 0;
-
-    for (let i = FRAME_START; i <= FRAME_COUNT; i++) {
-      const img = new Image();
-      // frame_00001.png format
-      const indexStr = i.toString().padStart(5, "0");
-      img.src = `/wedding_website_frames_24fps_best_quality/frame_${indexStr}.png`;
-      img.onload = () => {
-        loadedCount++;
-        setImagesLoaded(loadedCount);
-      };
-      loadedImages.push(img);
-    }
+    const loadedImages: HTMLImageElement[] = new Array(FRAME_COUNT);
     
+    // Load frame 1 immediately for initial render
+    const firstImg = new Image();
+    firstImg.src = `/wedding_website_frames_24fps_best_quality/frame_00001.png`;
+    firstImg.onload = () => {
+      loadedImages[0] = firstImg;
+      setImagesLoaded(1);
+    };
     setImages(loadedImages);
+
+    // Defer loading the remaining 239 frames to prioritize initial page load
+    const timeoutId = setTimeout(() => {
+      let loadedCount = 1;
+      for (let i = 2; i <= FRAME_COUNT; i++) {
+        const img = new Image();
+        const indexStr = i.toString().padStart(5, "0");
+        img.src = `/wedding_website_frames_24fps_best_quality/frame_${indexStr}.png`;
+        img.onload = () => {
+          loadedImages[i - 1] = img;
+          loadedCount++;
+          if (loadedCount % 10 === 0 || loadedCount === FRAME_COUNT) {
+            setImagesLoaded(loadedCount);
+          }
+        };
+      }
+    }, 1500); // 1.5 second delay to let fonts, main images, and JS parse completely
+
+    return () => clearTimeout(timeoutId);
   }, []);
 
   const renderFrame = () => {

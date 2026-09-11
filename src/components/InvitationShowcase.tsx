@@ -141,7 +141,6 @@ export default function InvitationShowcase() {
           alt="Background Texture"
           fill
           className="object-cover opacity-80"
-          priority
         />
       </div>
 

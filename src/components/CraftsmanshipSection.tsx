@@ -73,7 +73,6 @@ export default function CraftsmanshipSection() {
               fill
               className={`object-cover transition-opacity duration-700 ease-in-out ${activeFeature === null ? "opacity-100" : "opacity-0"}`}
               sizes="(max-width: 1024px) 100vw, 60vw"
-              priority
             />
             {/* Crossfade Images for interaction */}
             {GRID_ITEMS.map((item, idx) => (

@@ -26,30 +26,30 @@ export default function StatsBanner() {
         
         {/* Desktop Layout (hidden on mobile/tablet) */}
         <div className="hidden md:flex items-center justify-between">
-          <StatItem value="500+" label="Designs Available" className="flex-1" />
+          <StatItem value="12+" label="US States Served" className="flex-1" />
           <div className="w-[1px] h-10 bg-gold/15" />
-          <StatItem value="£1" label="Starting Price" className="flex-1" />
+          <StatItem value="3–5" label="Days to Go Live" className="flex-1" />
           <div className="w-[1px] h-10 bg-gold/15" />
-          <StatItem value="4" label="Day Turnaround" className="flex-1" />
+          <StatItem value="$199" label="Starting Price" className="flex-1" />
           <div className="w-[1px] h-10 bg-gold/15" />
-          <StatItem value="UK" label="Nationwide Delivery" className="flex-1" />
+          <StatItem value="1 yr" label="Hosting Included" className="flex-1" />
         </div>
 
         {/* Mobile/Tablet Layout */}
         <div className="grid grid-cols-2 gap-y-12 md:hidden">
-          <StatItem value="500+" label="Designs Available" />
+          <StatItem value="12+" label="US States Served" />
           <div className="relative">
             <div className="absolute left-0 top-0 bottom-0 w-[1px] bg-gold/15 -ml-px" />
-            <StatItem value="£1" label="Starting Price" />
+            <StatItem value="3–5" label="Days to Go Live" />
           </div>
           <div className="relative">
             <div className="absolute left-4 right-4 top-[-24px] h-[1px] bg-gold/15" />
-            <StatItem value="4" label="Day Turnaround" />
+            <StatItem value="$199" label="Starting Price" />
           </div>
           <div className="relative">
             <div className="absolute left-4 right-4 top-[-24px] h-[1px] bg-gold/15" />
             <div className="absolute left-0 top-0 bottom-0 w-[1px] bg-gold/15 -ml-px" />
-            <StatItem value="UK" label="Nationwide Delivery" />
+            <StatItem value="1 yr" label="Hosting Included" />
           </div>
         </div>
 

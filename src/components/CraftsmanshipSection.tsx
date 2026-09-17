@@ -12,17 +12,17 @@ const DETAIL_IMAGES = [
 ];
 
 const GRID_ITEMS = [
-  { title: "GOLD FOIL", src: DETAIL_IMAGES[0] },
-  { title: "EMBOSSING", src: DETAIL_IMAGES[1] },
-  { title: "LASER CUT", src: DETAIL_IMAGES[2] },
-  { title: "PREMIUM PAPER", src: DETAIL_IMAGES[3] },
+  { title: "ANIMATIONS", src: DETAIL_IMAGES[0] },
+  { title: "RSVP BUILT IN", src: DETAIL_IMAGES[1] },
+  { title: "PHOTO GALLERY", src: DETAIL_IMAGES[2] },
+  { title: "MOBILE PERFECT", src: DETAIL_IMAGES[3] },
 ];
 
 const FEATURES = [
   {
     num: "01",
-    title: "PERSONALISED FOR YOU",
-    desc: "Your names, dates and details, beautifully tailored to your wedding.",
+    title: "BUILT JUST FOR YOU",
+    desc: "Your names, your colors, your photos — every element designed from scratch for your wedding.",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
@@ -33,8 +33,8 @@ const FEATURES = [
   },
   {
     num: "02",
-    title: "LUXURY FINISHES",
-    desc: "Foil, embossing, laser cut and premium materials for a timeless look.",
+    title: "STUNNING ANIMATIONS",
+    desc: "Smooth, cinematic animations your guests feel the moment they tap the link.",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
@@ -45,8 +45,8 @@ const FEATURES = [
   },
   {
     num: "03",
-    title: "CRAFTED WITH CARE",
-    desc: "Exceptional quality and attention to every detail.",
+    title: "LIVE IN 3–5 DAYS",
+    desc: "Share your link on WhatsApp and let every guest experience your day before it begins.",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
@@ -88,7 +88,7 @@ export default function CraftsmanshipSection() {
 
             <div className="absolute bottom-8 left-8 md:bottom-12 md:left-12 flex flex-col gap-3 z-10 mix-blend-difference text-white">
               <span className="tracking-[0.2em] text-[10px] md:text-xs font-medium uppercase leading-loose">
-                Beautiful<br/>Details<br/>Last Forever
+                Built<br/>With<br/>Purpose
               </span>
               <span className="w-10 h-[1px] bg-white opacity-80"></span>
             </div>
@@ -129,18 +129,18 @@ export default function CraftsmanshipSection() {
             <div className="flex items-center gap-4 mb-4 lg:mb-6">
               <span className="w-8 h-[1px] bg-[#C5A059]"></span>
               <h3 className="text-[#C5A059] tracking-[0.2em] text-[10px] md:text-xs font-semibold uppercase">
-                The Details Matter
+                What We Build
               </h3>
               <span className="w-16 md:w-24 h-[1px] bg-[#C5A059]"></span>
             </div>
             
             <h2 className="font-serif text-3xl md:text-5xl lg:text-[3.25rem] leading-[1.1] mb-4 lg:mb-6 text-luxury-gray tracking-tight">
-              More Than an Invitation.<br />
+              More Than a Website.<br />
               A First Impression.
             </h2>
             
             <p className="font-sans text-luxury-gray/85 text-sm lg:text-[15px] leading-relaxed max-w-[460px]">
-              Every wedding tells a unique story, and it begins with the details. Our invitations are thoughtfully crafted with premium materials, elegant finishes, and personalised designs to make your special day truly unforgettable.
+              Every wedding tells a unique story, and it begins the moment guests tap your link. We build fully custom animated websites — not templates — designed around your colors, your photos, and your day.
             </p>
           </div>
 
@@ -175,12 +175,12 @@ export default function CraftsmanshipSection() {
           </div>
 
           <div className="relative w-full max-w-[500px]">
-            <a href="/collection" className="inline-block border border-[#C5A059] text-luxury-gray text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase py-3 px-8 md:py-4 md:px-10 hover:bg-[#C5A059] hover:text-white transition-all duration-500 w-fit">
-              Discover Our Craft &rarr;
+            <a href="/demo" className="inline-block border border-[#C5A059] text-luxury-gray text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase py-3 px-8 md:py-4 md:px-10 hover:bg-[#C5A059] hover:text-white transition-all duration-500 w-fit">
+              See Live Demos &rarr;
             </a>
             <div className="absolute right-0 md:right-4 top-14 md:top-4 opacity-70 transform rotate-[-2deg]">
               <p className="font-serif italic text-luxury-gray text-base md:text-lg text-right">
-                It's more than paper,<br/>
+                It's more than a link,<br/>
                 it's the beginning of forever.
               </p>
               <div className="w-16 md:w-24 h-[1px] bg-[#C5A059] ml-auto mt-2"></div>

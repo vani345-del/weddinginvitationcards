@@ -40,13 +40,13 @@ export default function HeroOverlay({ className, progress }: HeroOverlayProps) {
         className="absolute bottom-8 md:bottom-12 left-1/2 -translate-x-1/2 md:translate-x-0 md:left-16 lg:left-24 flex flex-col items-center md:items-start gap-2 md:flex-row md:gap-4 animate-bounce-subtle pointer-events-none"
       >
         <span className="text-luxury-gray/50 tracking-[0.2em] text-[10px] md:text-xs font-medium uppercase">
-          Scroll to Open
+          Scroll to explore
         </span>
         <div className="w-[1px] h-8 bg-luxury-gray/30 hidden md:block" />
         <div className="h-[1px] w-8 bg-luxury-gray/30 md:hidden" />
       </motion.div>
 
-      {/* STAGE 1: Left */}
+      {/* STAGE 1: Left — Custom digital wedding invitations */}
       <motion.div 
         style={{ opacity: opacity1, y: y1, display: display1 }}
         className="absolute top-[20%] md:top-1/3 left-4 right-4 md:right-auto md:left-16 lg:left-24 max-w-xl text-center md:text-left flex-col items-center md:items-start"
@@ -54,20 +54,20 @@ export default function HeroOverlay({ className, progress }: HeroOverlayProps) {
         <div className="flex items-center gap-4 mb-4 md:mb-6">
           <div className="h-[1px] w-8 md:w-12 bg-gold/50" />
           <span className="text-luxury-gray/80 tracking-[0.2em] text-xs md:text-sm font-medium uppercase font-sans">
-            The Wedding Cards UK
+            Custom digital wedding invitations
           </span>
           <div className="h-[1px] w-8 bg-gold/50 md:hidden" />
         </div>
         <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl leading-[1.15] md:leading-[1.1] text-luxury-gray font-light mb-4 md:mb-6">
-          The first impression<br />
-          <span className="italic font-medium">of your forever.</span>
+          Your love story,<br />
+          <span className="italic font-medium">told beautifully online.</span>
         </h1>
         <p className="text-luxury-gray/80 text-base sm:text-lg md:text-xl font-light font-sans max-w-sm md:max-w-md">
-          Beautifully crafted wedding stationery, designed to set the perfect tone for your special day.
+          Handcrafted animated wedding websites shared as a link. Opened on any device.
         </p>
       </motion.div>
 
-      {/* STAGE 2: Right */}
+      {/* STAGE 2: Right — Designed for your day */}
       <motion.div 
         style={{ opacity: opacity2, y: y2, display: display2 }}
         className="absolute top-[20%] md:top-1/3 left-4 right-4 md:left-auto md:right-16 lg:right-24 max-w-xl text-center md:text-right flex-col items-center md:items-end"
@@ -75,20 +75,20 @@ export default function HeroOverlay({ className, progress }: HeroOverlayProps) {
         <div className="flex items-center gap-4 mb-4 md:mb-6 md:justify-end">
           <div className="h-[1px] w-8 bg-gold/50 md:hidden" />
           <span className="text-luxury-gray/80 tracking-[0.2em] text-xs md:text-sm font-medium uppercase font-sans">
-            Unmatched Quality
+            Designed for your day
           </span>
           <div className="h-[1px] w-8 md:w-12 bg-gold/50" />
         </div>
         <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl leading-[1.15] md:leading-[1.1] text-luxury-gray font-light mb-4 md:mb-6">
-          Bespoke Design &<br />
-          <span className="italic font-medium">Premium Printing.</span>
+          Every animation.<br />
+          <span className="italic font-medium">Every detail. Yours.</span>
         </h2>
         <p className="text-luxury-gray/80 text-base sm:text-lg md:text-xl font-light font-sans max-w-sm md:max-w-md">
-          Elevate your invitations with luxurious paper textures, elegant gold foils, and exquisite craftsmanship.
+          Custom colors, your music, your photos — built from scratch for one couple. You.
         </p>
       </motion.div>
 
-      {/* STAGE 3: Bottom Center */}
+      {/* STAGE 3: Bottom Center — Ready in 3–5 days */}
       <motion.div 
         style={{ opacity: opacity3, y: y3, display: display3 }}
         className="absolute bottom-20 md:bottom-24 left-4 right-4 md:left-1/2 md:-translate-x-1/2 max-w-2xl text-center flex-col items-center"
@@ -96,19 +96,20 @@ export default function HeroOverlay({ className, progress }: HeroOverlayProps) {
         <div className="flex items-center justify-center gap-4 mb-4 md:mb-6">
           <div className="h-[1px] w-6 md:w-8 bg-gold/50" />
           <span className="text-luxury-gray/80 tracking-[0.2em] text-xs md:text-sm font-medium uppercase font-sans">
-            Every Detail Matters
+            Ready in 3–5 days
           </span>
           <div className="h-[1px] w-6 md:w-8 bg-gold/50" />
         </div>
         <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl leading-[1.15] md:leading-[1.1] text-luxury-gray font-light mb-4 md:mb-6">
-          Crafted with <span className="italic font-medium">Love.</span>
+          Share a link.<br />
+          <span className="italic font-medium">Invite the world.</span>
         </h2>
         <p className="text-luxury-gray/80 text-base sm:text-lg md:text-xl font-light font-sans max-w-sm md:max-w-md mx-auto">
-          From your save-the-dates to the final thank you cards, we bring your vision to life flawlessly.
+          Your guests tap once and feel the magic of your day before it even begins.
         </p>
       </motion.div>
 
-      {/* STAGE 4: Left with Buttons */}
+      {/* STAGE 4: Left with Buttons — Start your invitation */}
       <motion.div 
         style={{ opacity: opacity4, y: y4, display: display4, pointerEvents: pointerEvents4 as any }}
         className="absolute top-[15%] md:top-1/3 left-4 right-4 md:right-auto md:left-16 lg:left-24 max-w-xl text-center md:text-left flex-col items-center md:items-start"
@@ -129,14 +130,14 @@ export default function HeroOverlay({ className, progress }: HeroOverlayProps) {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 md:gap-6 w-full sm:w-auto px-4 md:px-0">
           <a href="/collection" className="group relative w-full sm:w-auto overflow-hidden flex items-center justify-center gap-3 bg-luxury-gray text-ivory px-6 md:px-8 py-4 transition-transform duration-300 hover:-translate-y-1 pointer-events-auto">
-            <span className="relative z-10 text-xs md:text-sm tracking-widest font-medium">EXPLORE INVITATIONS</span>
+            <span className="relative z-10 text-xs md:text-sm tracking-widest font-medium">SEE OUR WORK</span>
             <ArrowRight className="relative z-10 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
             <div className="absolute inset-0 bg-gold translate-y-full transition-transform duration-300 ease-in-out group-hover:translate-y-0" />
           </a>
           
-          <button className="group w-full sm:w-auto flex items-center justify-center gap-3 border border-luxury-gray/20 bg-ivory/50 backdrop-blur-sm text-luxury-gray px-6 md:px-8 py-4 transition-all duration-300 hover:bg-ivory hover:shadow-lg hover:border-gold/30 hover:-translate-y-1">
+          <button className="group w-full sm:w-auto flex items-center justify-center gap-3 border border-luxury-gray/20 bg-ivory/50 backdrop-blur-sm text-luxury-gray px-6 md:px-8 py-4 transition-all duration-300 hover:bg-ivory hover:shadow-lg hover:border-gold/30 hover:-translate-y-1 pointer-events-auto">
             <MessageCircle className="w-4 h-4" />
-            <span className="text-xs md:text-sm tracking-widest font-medium">WHATSAPP US</span>
+            <span className="text-xs md:text-sm tracking-widest font-medium">FOR PLANNERS & VENUES</span>
           </button>
         </div>
       </motion.div>

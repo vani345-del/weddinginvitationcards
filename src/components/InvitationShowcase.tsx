@@ -7,19 +7,19 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const CATEGORIES = [
   "ALL",
-  "TRADITIONAL",
-  "FLORAL",
-  "LASER CUT",
-  "LUXURY FOIL",
-  "ACRYLIC"
+  "GARDEN FLORAL",
+  "RUSTIC BOHO",
+  "MODERN LUXURY",
+  "MINIMALIST",
+  "CINEMATIC"
 ];
 
 const CARDS = [
-  { id: 1, category: "TRADITIONAL", src: "https://res.cloudinary.com/dclxwdpki/image/upload/v1789098405/ChatGPT_Image_Sep_11_2026_09_16_13_AM_qdiesg.png", alt: "Classic Invitation", title: "Classic Wedding Invitation", price: "From £1.00" },
-  { id: 2, category: "FLORAL", src: "https://res.cloudinary.com/dclxwdpki/image/upload/v1789098477/ChatGPT_Image_Sep_11_2026_09_17_37_AM_iwedah.png", alt: "Floral Invitation", title: "Floral Elegance Suite", price: "From £1.50" },
-  { id: 3, category: "LASER CUT", src: "https://res.cloudinary.com/dclxwdpki/image/upload/v1789098551/ChatGPT_Image_Sep_11_2026_09_18_53_AM_kq7hyg.png", alt: "Laser Cut Invitation", title: "Luxury Laser Cut Design", price: "From £2.00" },
-  { id: 4, category: "LUXURY FOIL", src: "https://res.cloudinary.com/dclxwdpki/image/upload/v1789098647/ChatGPT_Image_Sep_11_2026_09_20_26_AM_jayrul.png", alt: "Foil & Embossed Invitation", title: "Premium Foil & Embossed", price: "From £1.80" },
-  { id: 5, category: "ACRYLIC", src: "https://res.cloudinary.com/dclxwdpki/image/upload/v1789098872/ChatGPT_Image_Sep_11_2026_09_24_04_AM_itoyw3.png", alt: "Acrylic & Modern Invitation", title: "Modern Acrylic Invite", price: "From £2.50" },
+  { id: 1, category: "GARDEN FLORAL", src: "https://res.cloudinary.com/dclxwdpki/image/upload/v1789098405/ChatGPT_Image_Sep_11_2026_09_16_13_AM_qdiesg.png", alt: "Garden Floral Website", title: "Garden Floral Romance", price: "From $199" },
+  { id: 2, category: "RUSTIC BOHO", src: "https://res.cloudinary.com/dclxwdpki/image/upload/v1789098477/ChatGPT_Image_Sep_11_2026_09_17_37_AM_iwedah.png", alt: "Rustic Boho Website", title: "Rustic Boho", price: "From $199" },
+  { id: 3, category: "MODERN LUXURY", src: "https://res.cloudinary.com/dclxwdpki/image/upload/v1789098551/ChatGPT_Image_Sep_11_2026_09_18_53_AM_kq7hyg.png", alt: "Modern Luxury Website", title: "Modern Luxury", price: "From $399" },
+  { id: 4, category: "MINIMALIST", src: "https://res.cloudinary.com/dclxwdpki/image/upload/v1789098647/ChatGPT_Image_Sep_11_2026_09_20_26_AM_jayrul.png", alt: "Minimalist Website", title: "Clean Minimalist", price: "From $199" },
+  { id: 5, category: "CINEMATIC", src: "https://res.cloudinary.com/dclxwdpki/image/upload/v1789098872/ChatGPT_Image_Sep_11_2026_09_24_04_AM_itoyw3.png", alt: "Cinematic Website", title: "Cinematic Dark", price: "From $499" },
 ];
 
 export default function InvitationShowcase() {
@@ -151,16 +151,16 @@ export default function InvitationShowcase() {
           <div className="flex items-center justify-center gap-3 md:gap-4 mb-2">
             <div className="h-[1px] w-10 md:w-14 bg-[#B59A6D]" />
             <span className="text-[9px] md:text-[10px] tracking-[0.3em] font-medium text-[#8B7347] uppercase">
-              The Collection
+              Our Work
             </span>
             <div className="h-[1px] w-10 md:w-14 bg-[#B59A6D]" />
           </div>
           
           <h2 className="font-serif text-3xl md:text-4xl lg:text-[2.75rem] text-[#1A1A1A] tracking-tight mb-2 leading-tight">
-            Find Your <span className="italic font-light">Perfect</span> Invitation
+            Find Your <span className="italic font-light">Perfect</span> Website Style
           </h2>
           <p className="font-sans text-[11px] md:text-xs text-[#4A4A4A] max-w-xl font-light px-4">
-            From timeless elegance to modern luxury, discover a design made for your day.
+            Every website is built from scratch — your colors, your story, your animations. Nothing is a template.
           </p>
         </div>
 
@@ -277,13 +277,13 @@ export default function InvitationShowcase() {
             className="flex flex-col items-center z-20"
           >
             <span className="text-[9px] md:text-[10px] font-semibold tracking-[0.25em] text-[#5A5A5A] uppercase mb-2 text-center px-4">
-              {CARDS[activeIndex]?.title || "LUXURY LASER CUT DESIGN"}
+              {CARDS[activeIndex]?.title || "MODERN LUXURY"}
             </span>
             <span className="font-serif text-2xl md:text-3xl lg:text-3xl text-[#1A1A1A] mb-4">
-              {CARDS[activeIndex]?.price || "From £2.00"}
+              {CARDS[activeIndex]?.price || "From $399"}
             </span>
-            <a href="/collection" className="bg-[#967C4B] text-white text-[10px] font-medium tracking-[0.15em] uppercase px-6 py-2.5 md:px-7 md:py-3 rounded-full hover:bg-[#7a643b] transition-colors flex items-center gap-2 shadow-sm">
-              VIEW DESIGN <span className="text-xs font-light">&rarr;</span>
+            <a href="/demo" className="bg-[#967C4B] text-white text-[10px] font-medium tracking-[0.15em] uppercase px-6 py-2.5 md:px-7 md:py-3 rounded-full hover:bg-[#7a643b] transition-colors flex items-center gap-2 shadow-sm">
+              VIEW LIVE DEMO <span className="text-xs font-light">&rarr;</span>
             </a>
           </motion.div>
         </AnimatePresence>
@@ -292,7 +292,7 @@ export default function InvitationShowcase() {
         <div className="absolute right-4 md:right-[8%] lg:right-[10%] bottom-6 md:bottom-8 lg:bottom-10 rotate-[-5deg] hidden lg:block z-10 pointer-events-none">
           <div className="font-serif italic text-lg lg:text-xl text-[#8A744A] leading-[1.2] opacity-60">
             More than <br/>
-            an invitation,<br/>
+            a website,<br/>
             it's your story.
           </div>
         </div>

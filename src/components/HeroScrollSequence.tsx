@@ -25,36 +25,41 @@ export default function HeroScrollSequence({ className, children, progress }: He
     [FRAME_START, FRAME_COUNT]
   );
 
-  // Preload images
+  // Preload images — smart batched loading
   useEffect(() => {
     const loadedImages: HTMLImageElement[] = new Array(FRAME_COUNT);
-    
-    // Load frame 1 immediately for initial render
-    const firstImg = new Image();
-    firstImg.src = `/wedding_website_frames_24fps_best_quality/frame_00001.png`;
-    firstImg.onload = () => {
-      loadedImages[0] = firstImg;
-      setImagesLoaded(1);
+    let loadedCount = 0;
+
+    // Priority batch — load first 30 frames immediately
+    // This covers the initial viewport — user can start scrolling right away
+    const PRIORITY_FRAMES = 30;
+
+    const loadFrame = (i: number) => {
+      const img = new Image();
+      const indexStr = i.toString().padStart(5, "0");
+      img.src = `/wedding_website_frames_24fps_best_quality/frame_${indexStr}.png`;
+      img.onload = () => {
+        loadedImages[i - 1] = img;
+        loadedCount++;
+        setImagesLoaded(loadedCount);
+      };
+      return img;
     };
-    setImages(loadedImages);
 
-    // Defer loading the remaining 239 frames to prioritize initial page load
+    // Load frames 1–30 immediately with high priority
+    for (let i = 1; i <= PRIORITY_FRAMES; i++) {
+      loadFrame(i);
+    }
+
+    // Load remaining frames 31–240 after a short delay
+    // This lets the browser finish painting the initial view first
     const timeoutId = setTimeout(() => {
-      let loadedCount = 1;
-      for (let i = 2; i <= FRAME_COUNT; i++) {
-        const img = new Image();
-        const indexStr = i.toString().padStart(5, "0");
-        img.src = `/wedding_website_frames_24fps_best_quality/frame_${indexStr}.png`;
-        img.onload = () => {
-          loadedImages[i - 1] = img;
-          loadedCount++;
-          if (loadedCount % 10 === 0 || loadedCount === FRAME_COUNT) {
-            setImagesLoaded(loadedCount);
-          }
-        };
+      for (let i = PRIORITY_FRAMES + 1; i <= FRAME_COUNT; i++) {
+        loadFrame(i);
       }
-    }, 1500); // 1.5 second delay to let fonts, main images, and JS parse completely
+    }, 800);
 
+    setImages(loadedImages);
     return () => clearTimeout(timeoutId);
   }, []);
 
@@ -112,7 +117,10 @@ export default function HeroScrollSequence({ className, children, progress }: He
     return () => window.removeEventListener("resize", handleResize);
   }, [images, imagesLoaded]); // Re-run when images finish loading so it draws the first frame
 
-  const isLoading = imagesLoaded < FRAME_COUNT;
+  // Show content after first 30 frames are ready — user sees page fast
+  // Remaining frames continue loading silently in background while user scrolls
+  const READY_THRESHOLD = 30;
+  const isLoading = imagesLoaded < READY_THRESHOLD;
 
   return (
     <div className={cn("relative w-full h-full", className)}>
@@ -138,12 +146,12 @@ export default function HeroScrollSequence({ className, children, progress }: He
       {isLoading && (
         <div className="absolute inset-0 flex flex-col items-center justify-center bg-ivory z-50">
           <div className="text-luxury-gray font-serif text-3xl mb-4 animate-pulse">
-            The Wedding Cards UK
+            The Wedding Cards
           </div>
           <div className="flex items-center gap-4">
             <div className="w-12 h-[1px] bg-gold/30" />
             <div className="text-luxury-gray/70 font-sans tracking-widest text-xs uppercase">
-              Preparing your experience... {Math.round((imagesLoaded / FRAME_COUNT) * 100)}%
+              Preparing your experience... {Math.min(100, Math.round((imagesLoaded / READY_THRESHOLD) * 100))}%
             </div>
             <div className="w-12 h-[1px] bg-gold/30" />
           </div>

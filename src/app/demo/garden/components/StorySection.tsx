@@ -27,10 +27,15 @@ const STORY = [
   },
 ];
 
-const fadeSlide = (dir: "left" | "right") => ({
-  hidden: { opacity: 0, x: dir === "left" ? -50 : 50 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.9, ease: "easeOut" } },
-});
+const slideLeft = {
+  hidden: { opacity: 0, x: -50 },
+  visible: { opacity: 1, x: 0 },
+};
+
+const slideRight = {
+  hidden: { opacity: 0, x: 50 },
+  visible: { opacity: 1, x: 0 },
+};
 
 export default function StorySection() {
   return (
@@ -69,10 +74,11 @@ export default function StorySection() {
               {/* Photo */}
               <motion.div
                 className="w-full md:w-1/2"
-                variants={fadeSlide(item.reverse ? "right" : "left")}
+                variants={item.reverse ? slideRight : slideLeft}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.9 }}
               >
                 <div className="relative w-full overflow-hidden" style={{ aspectRatio: "4/3", borderRadius: "4px", boxShadow: "0 20px 60px rgba(0,0,0,0.12)" }}>
                   <Image src={item.image} alt={item.headline} fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
@@ -82,10 +88,11 @@ export default function StorySection() {
               {/* Text */}
               <motion.div
                 className="w-full md:w-1/2 flex flex-col justify-center"
-                variants={fadeSlide(item.reverse ? "left" : "right")}
+                variants={item.reverse ? slideLeft : slideRight}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.9, delay: 0.15 }}
               >
                 <span className="block mb-4" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 500, fontSize: "11px", letterSpacing: "0.2em", textTransform: "uppercase", color: "#C9A96E" }}>
                   {item.label}

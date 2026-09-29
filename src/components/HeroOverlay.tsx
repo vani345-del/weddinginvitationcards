@@ -46,20 +46,20 @@ export default function HeroOverlay({ className, progress }: HeroOverlayProps) {
         <div className="h-[1px] w-8 bg-luxury-gray/30 md:hidden" />
       </motion.div>
 
-      {/* STAGE 1: Left — Custom digital wedding invitations */}
+      {/* STAGE 1: Left — Custom online wedding invitation websites */}
       <motion.div 
         style={{ opacity: opacity1, y: y1, display: display1 }}
-        className="absolute top-[20%] md:top-1/3 left-4 right-4 md:right-auto md:left-16 lg:left-24 max-w-xl text-center md:text-left flex-col items-center md:items-start"
+        className="absolute top-[20%] md:top-1/3 left-4 right-4 md:right-auto md:left-16 lg:left-24 max-w-xl text-center md:text-left flex-col items-center md:items-start bg-white/70 backdrop-blur-md p-6 md:p-10 rounded-2xl shadow-2xl border border-white/50"
       >
         <div className="flex items-center gap-4 mb-4 md:mb-6">
           <div className="h-[1px] w-8 md:w-12 bg-gold/50" />
           <span className="text-luxury-gray/80 tracking-[0.2em] text-xs md:text-sm font-medium uppercase font-sans">
-            Custom digital wedding invitations
+            Custom online wedding invitation websites
           </span>
           <div className="h-[1px] w-8 bg-gold/50 md:hidden" />
         </div>
         <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl leading-[1.15] md:leading-[1.1] text-luxury-gray font-light mb-4 md:mb-6">
-          Your love story,<br />
+          Your wedding story,<br />
           <span className="italic font-medium">told beautifully online.</span>
         </h1>
         <p className="text-luxury-gray/80 text-base sm:text-lg md:text-xl font-light font-sans max-w-sm md:max-w-md">
@@ -70,7 +70,7 @@ export default function HeroOverlay({ className, progress }: HeroOverlayProps) {
       {/* STAGE 2: Right — Designed for your day */}
       <motion.div 
         style={{ opacity: opacity2, y: y2, display: display2 }}
-        className="absolute top-[20%] md:top-1/3 left-4 right-4 md:left-auto md:right-16 lg:right-24 max-w-xl text-center md:text-right flex-col items-center md:items-end"
+        className="absolute top-[20%] md:top-1/3 left-4 right-4 md:left-auto md:right-16 lg:right-24 max-w-xl text-center md:text-right flex-col items-center md:items-end bg-white/70 backdrop-blur-md p-6 md:p-10 rounded-2xl shadow-2xl border border-white/50"
       >
         <div className="flex items-center gap-4 mb-4 md:mb-6 md:justify-end">
           <div className="h-[1px] w-8 bg-gold/50 md:hidden" />
@@ -84,19 +84,19 @@ export default function HeroOverlay({ className, progress }: HeroOverlayProps) {
           <span className="italic font-medium">Every detail. Yours.</span>
         </h2>
         <p className="text-luxury-gray/80 text-base sm:text-lg md:text-xl font-light font-sans max-w-sm md:max-w-md">
-          Custom colors, your music, your photos — built from scratch for one couple. You.
+          Custom colors, your photos, your music — built from scratch for your wedding.
         </p>
       </motion.div>
 
       {/* STAGE 3: Bottom Center — Ready in 3–5 days */}
       <motion.div 
         style={{ opacity: opacity3, y: y3, display: display3 }}
-        className="absolute bottom-20 md:bottom-24 left-4 right-4 md:left-1/2 md:-translate-x-1/2 max-w-2xl text-center flex-col items-center"
+        className="absolute bottom-20 md:bottom-24 left-4 right-4 md:left-1/2 md:-translate-x-1/2 max-w-2xl text-center flex-col items-center bg-white/70 backdrop-blur-md p-6 md:p-10 rounded-2xl shadow-2xl border border-white/50"
       >
         <div className="flex items-center justify-center gap-4 mb-4 md:mb-6">
           <div className="h-[1px] w-6 md:w-8 bg-gold/50" />
           <span className="text-luxury-gray/80 tracking-[0.2em] text-xs md:text-sm font-medium uppercase font-sans">
-            Ready in 3–5 days
+            Ready in 2–3 days
           </span>
           <div className="h-[1px] w-6 md:w-8 bg-gold/50" />
         </div>
@@ -105,14 +105,14 @@ export default function HeroOverlay({ className, progress }: HeroOverlayProps) {
           <span className="italic font-medium">Invite the world.</span>
         </h2>
         <p className="text-luxury-gray/80 text-base sm:text-lg md:text-xl font-light font-sans max-w-sm md:max-w-md mx-auto">
-          Your guests tap once and feel the magic of your day before it even begins.
+          Your guests tap once and feel the magic of your day instantly.
         </p>
       </motion.div>
 
-      {/* STAGE 4: Left with Buttons — Start your invitation */}
+      {/* STAGE 4: Left with Buttons — Start your journey */}
       <motion.div 
         style={{ opacity: opacity4, y: y4, display: display4, pointerEvents: pointerEvents4 as any }}
-        className="absolute top-[15%] md:top-1/3 left-4 right-4 md:right-auto md:left-16 lg:left-24 max-w-xl text-center md:text-left flex-col items-center md:items-start"
+        className="absolute top-[15%] md:top-1/3 left-4 right-4 md:right-auto md:left-16 lg:left-24 max-w-xl text-center md:text-left flex-col items-center md:items-start bg-white/70 backdrop-blur-md p-6 md:p-10 rounded-2xl shadow-2xl border border-white/50"
       >
         <div className="flex items-center gap-4 mb-4 md:mb-6">
           <div className="h-[1px] w-8 md:w-12 bg-gold/50" />
@@ -123,7 +123,7 @@ export default function HeroOverlay({ className, progress }: HeroOverlayProps) {
         </div>
         <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl leading-[1.15] md:leading-[1.1] text-luxury-gray font-light mb-4 md:mb-6">
           Your Story,<br />
-          <span className="italic font-medium">Beautifully Printed.</span>
+          <span className="italic font-medium">Beautifully Digital.</span>
         </h2>
         <p className="text-luxury-gray/80 text-base sm:text-lg md:text-xl font-light font-sans max-w-sm md:max-w-md mb-8 md:mb-12">
           Let's create something unforgettable together.

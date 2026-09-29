@@ -36,25 +36,22 @@ export default function Navbar() {
         <Link 
           href="/" 
           className={cn(
-            "font-serif tracking-widest text-xl transition-colors duration-300",
+            "font-serif font-bold tracking-widest text-xs sm:text-sm md:text-base lg:text-lg transition-colors duration-300",
             isScrolled ? "text-luxury-gray" : "text-luxury-gray"
           )}
         >
-          THE WEDDING CARDS
+          DIGITAL INTERACTIVE INVITATIONS
         </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-10">
-          <Link href="/" className="text-sm font-medium tracking-wider uppercase text-luxury-gray/70 hover:text-gold transition-colors">
+          <Link href="/" className="text-sm font-semibold tracking-wider uppercase text-luxury-gray/90 hover:text-gold transition-colors">
             Home
           </Link>
-          <Link href="/collection" className="text-sm font-medium tracking-wider uppercase text-luxury-gray/70 hover:text-gold transition-colors">
-            Collection
+          <Link href="/templates" className="text-sm font-semibold tracking-wider uppercase text-luxury-gray/90 hover:text-gold transition-colors">
+            Templates
           </Link>
-          <Link href="/services" className="text-sm font-medium tracking-wider uppercase text-luxury-gray/70 hover:text-gold transition-colors">
-            Services
-          </Link>
-          <Link href="/about" className="text-sm font-medium tracking-wider uppercase text-luxury-gray/70 hover:text-gold transition-colors">
+          <Link href="/about" className="text-sm font-semibold tracking-wider uppercase text-luxury-gray/90 hover:text-gold transition-colors">
             About
           </Link>
         </nav>
@@ -87,21 +84,18 @@ export default function Navbar() {
         )}
       >
         <div className="px-6 py-8 flex flex-col space-y-6 text-center">
-          <Link href="/" className="text-sm font-medium tracking-wider uppercase text-luxury-gray hover:text-gold transition-colors">
+          <Link href="/" className="text-sm font-semibold tracking-wider uppercase text-luxury-gray hover:text-gold transition-colors">
             Home
           </Link>
-          <Link href="/collection" className="text-sm font-medium tracking-wider uppercase text-luxury-gray hover:text-gold transition-colors">
-            Collection
+          <Link href="/templates" className="text-sm font-semibold tracking-wider uppercase text-luxury-gray hover:text-gold transition-colors">
+            Templates
           </Link>
-          <Link href="/services" className="text-sm font-medium tracking-wider uppercase text-luxury-gray hover:text-gold transition-colors">
-            Services
-          </Link>
-          <Link href="/about" className="text-sm font-medium tracking-wider uppercase text-luxury-gray hover:text-gold transition-colors">
+          <Link href="/about" className="text-sm font-semibold tracking-wider uppercase text-luxury-gray hover:text-gold transition-colors">
             About
           </Link>
           <Link
             href="/contact"
-            className="inline-block mt-4 mx-auto px-8 py-3 bg-gold text-ivory text-xs font-medium tracking-widest uppercase transition-colors"
+            className="inline-block mt-4 mx-auto px-8 py-3 bg-gold text-ivory text-xs font-semibold tracking-widest uppercase transition-colors"
           >
             Get In Touch
           </Link>

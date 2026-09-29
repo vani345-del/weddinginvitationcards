@@ -145,8 +145,8 @@ export default function HeroScrollSequence({ className, children, progress }: He
       {/* Loading Overlay - perfectly opaque and on top of everything */}
       {isLoading && (
         <div className="absolute inset-0 flex flex-col items-center justify-center bg-ivory z-50">
-          <div className="text-luxury-gray font-serif text-3xl mb-4 animate-pulse">
-            The Wedding Cards
+          <div className="text-luxury-gray font-serif text-xl font-bold tracking-widest mb-4 animate-pulse">
+            DIGITAL INTERACTIVE INVITATIONS
           </div>
           <div className="flex items-center gap-4">
             <div className="w-12 h-[1px] bg-gold/30" />

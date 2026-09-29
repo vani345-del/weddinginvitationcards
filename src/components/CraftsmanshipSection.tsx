@@ -1,193 +1,430 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
+import { AnimatePresence, motion } from "framer-motion";
 
-const MAIN_IMAGE = "https://res.cloudinary.com/dclxwdpki/image/upload/v1789102946/ChatGPT_Image_Sep_11_2026_10_31_51_AM_rviheu.png";
-const DETAIL_IMAGES = [
-  "https://res.cloudinary.com/dclxwdpki/image/upload/v1789103044/ChatGPT_Image_Sep_11_2026_10_33_54_AM_rll3eo.png",
-  "https://res.cloudinary.com/dclxwdpki/image/upload/v1789103404/ChatGPT_Image_Sep_11_2026_10_39_32_AM_yw4vqv.png",
-  "https://res.cloudinary.com/dclxwdpki/image/upload/v1789103415/ChatGPT_Image_Sep_11_2026_10_34_55_AM_vgngit.png",
-  "https://res.cloudinary.com/dclxwdpki/image/upload/v1789103502/ChatGPT_Image_Sep_11_2026_10_40_59_AM_ghymkc.png"
-];
-
-const GRID_ITEMS = [
-  { title: "ANIMATIONS", src: DETAIL_IMAGES[0] },
-  { title: "RSVP BUILT IN", src: DETAIL_IMAGES[1] },
-  { title: "PHOTO GALLERY", src: DETAIL_IMAGES[2] },
-  { title: "MOBILE PERFECT", src: DETAIL_IMAGES[3] },
-];
-
-const FEATURES = [
+/* ─── Slide data ─────────────────────────────────────────── */
+const SLIDES = [
   {
-    num: "01",
-    title: "BUILT JUST FOR YOU",
-    desc: "Your names, your colors, your photos — every element designed from scratch for your wedding.",
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
-        <path d="M15 5l4 4"></path>
-        <path d="M5 22c-1.5 0-3-1.5-3-3s2-2 4-2 4 1.5 4 3-1.5 3-4 3z"></path>
-      </svg>
-    )
+    id: 0,
+    image: "/1template.png",
+    label: "THE BEGINNING",
+    heading: "Your Story Deserves\nMore Than a Link.",
+    description:
+      "From the first announcement to the final celebration, your wedding website becomes a beautiful digital reflection of your love story — created for the people who matter most.",
+    features: [
+      {
+        num: "01",
+        title: "YOUR STORY, BEAUTIFULLY TOLD",
+        desc: "Every photo, detail, and moment comes together in one meaningful experience.",
+      },
+      {
+        num: "02",
+        title: "MADE FOR YOUR LOVE",
+        desc: "Your names, colors, memories, and personality shape every part of the experience.",
+      },
+      {
+        num: "03",
+        title: "A MEMORY THEY CAN KEEP",
+        desc: "More than an invitation — a digital keepsake your guests can return to.",
+      },
+    ],
+    quote: "Because some stories deserve to be remembered.",
   },
   {
-    num: "02",
-    title: "STUNNING ANIMATIONS",
-    desc: "Smooth, cinematic animations your guests feel the moment they tap the link.",
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-        <polyline points="2 12 12 17 22 12"></polyline>
-        <polyline points="2 17 12 22 22 17"></polyline>
-      </svg>
-    )
+    id: 1,
+    image: "/2template.png",
+    label: "THE EXPERIENCE",
+    heading: "Let Them Feel\nthe Moment.",
+    description:
+      "Your guests shouldn't just open an invitation. They should feel the excitement, anticipation, and emotion of your wedding from the very first tap.",
+    features: [
+      {
+        num: "01",
+        title: "CINEMATIC MOMENTS",
+        desc: "Beautiful transitions and animations bring your story to life.",
+      },
+      {
+        num: "02",
+        title: "EVERY DETAIL MATTERS",
+        desc: "From your photos to your schedule, every detail is designed around you.",
+      },
+      {
+        num: "03",
+        title: "MADE TO BE REMEMBERED",
+        desc: "Create an experience your guests will talk about long after the celebration.",
+      },
+    ],
+    quote: "Turn an invitation into an experience.",
   },
   {
-    num: "03",
-    title: "LIVE IN 3–5 DAYS",
-    desc: "Share your link on WhatsApp and let every guest experience your day before it begins.",
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-      </svg>
-    )
+    id: 2,
+    image: "/3template1.png",
+    label: "THE MEMORIES",
+    heading: "One Beautiful Place\nfor Every Memory.",
+    description:
+      "Your wedding day passes in a moment. Your digital wedding experience can keep those memories alive — from the first announcement to the moments after 'I do.'",
+    features: [
+      {
+        num: "01",
+        title: "SHARE YOUR JOURNEY",
+        desc: "Tell your story through photographs, messages, events, and meaningful details.",
+      },
+      {
+        num: "02",
+        title: "BRING EVERYONE CLOSER",
+        desc: "Give family and friends one beautiful place to celebrate with you.",
+      },
+      {
+        num: "03",
+        title: "KEEP IT FOREVER",
+        desc: "Your wedding website becomes part of the story you can look back on together.",
+      },
+    ],
+    quote: "The day ends. The memories don't.",
   },
 ];
 
+/* ─── Framer variants ────────────────────────────────────── */
+const imgVariants = {
+  enter: { opacity: 0, scale: 1.04 },
+  center: { opacity: 1, scale: 1, transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] } },
+  exit: { opacity: 0, scale: 0.97, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } },
+};
+
+const textVariants = {
+  enter: { opacity: 0, y: 22 },
+  center: (delay: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, delay, ease: [0.16, 1, 0.3, 1] },
+  }),
+  exit: { opacity: 0, y: -14, transition: { duration: 0.4, ease: "easeIn" } },
+};
+
+const featureVariants = {
+  enter: { opacity: 0, x: 16 },
+  center: (i: number) => ({
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.55, delay: 0.35 + i * 0.1, ease: [0.16, 1, 0.3, 1] },
+  }),
+  exit: { opacity: 0, x: -10, transition: { duration: 0.3 } },
+};
+
+/* ─── Component ─────────────────────────────────────────── */
 export default function CraftsmanshipSection() {
-  const [activeFeature, setActiveFeature] = useState<number | null>(null);
+  const [active, setActive] = useState(0);
+
+  const goTo = useCallback((idx: number) => {
+    setActive(idx);
+  }, []);
+
+  const next = useCallback(() => {
+    setActive((p) => (p + 1) % SLIDES.length);
+  }, []);
+
+  const prev = useCallback(() => {
+    setActive((p) => (p - 1 + SLIDES.length) % SLIDES.length);
+  }, []);
+
+  /* always auto-rotate, no pause */
+  useEffect(() => {
+    const id = setInterval(next, 3000);
+    return () => clearInterval(id);
+  }, [next]);
+
+  const slide = SLIDES[active];
 
   return (
-    <section className="relative w-full py-12 lg:py-0 overflow-hidden lg:h-screen lg:min-h-[750px] lg:max-h-[950px] flex items-center justify-center" style={{ backgroundColor: "#F2E8D9" }}>
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-16 lg:gap-16 items-center w-full">
-        
-        {/* Left Side: Images */}
-        <div className="col-span-1 lg:col-span-6 flex flex-col gap-4 lg:gap-6 w-full">
-          {/* Main Large Image */}
-          <div className="relative w-full aspect-[4/3] md:aspect-[1.25] shadow-2xl overflow-hidden group">
-            {/* Base Image */}
-            <Image
-              src={MAIN_IMAGE}
-              alt="Luxury Wedding Invitation"
-              fill
-              className={`object-cover transition-opacity duration-700 ease-in-out ${activeFeature === null ? "opacity-100" : "opacity-0"}`}
-              sizes="(max-width: 1024px) 100vw, 60vw"
-            />
-            {/* Crossfade Images for interaction */}
-            {GRID_ITEMS.map((item, idx) => (
-              <Image
-                key={idx}
-                src={item.src}
-                alt={item.title}
-                fill
-                className={`object-cover transition-opacity duration-700 ease-in-out ${activeFeature === idx ? "opacity-100" : "opacity-0"}`}
-                sizes="(max-width: 1024px) 100vw, 60vw"
-              />
-            ))}
+    <section
+      className="relative w-full overflow-hidden bg-[#F5EFE6] py-20 md:py-28 lg:py-0 lg:min-h-screen flex items-center"
+      aria-label="Wedding story showcase"
+    >
+      {/* ── Ambient background glow ── */}
+      <div className="pointer-events-none absolute inset-0 z-0">
+        <div className="absolute top-0 left-0 w-[500px] h-[500px] rounded-full bg-[#DDD0C2]/40 blur-[140px]" />
+        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full bg-[#C9BBA8]/30 blur-[120px]" />
+      </div>
 
-            <div className="absolute bottom-8 left-8 md:bottom-12 md:left-12 flex flex-col gap-3 z-10 mix-blend-difference text-white">
-              <span className="tracking-[0.2em] text-[10px] md:text-xs font-medium uppercase leading-loose">
-                Built<br/>With<br/>Purpose
-              </span>
-              <span className="w-10 h-[1px] bg-white opacity-80"></span>
-            </div>
-          </div>
+      {/* ── Decorative SVG top-right ── */}
+      <svg className="pointer-events-none absolute top-0 right-0 w-64 opacity-[0.06] z-0" viewBox="0 0 260 260" fill="none">
+        <circle cx="260" cy="0" r="200" stroke="#8B6B3D" strokeWidth="0.5" />
+        <circle cx="260" cy="0" r="150" stroke="#8B6B3D" strokeWidth="0.5" />
+        <circle cx="260" cy="0" r="100" stroke="#8B6B3D" strokeWidth="0.5" />
+      </svg>
 
-          {/* 4 Small Thumbnail Grid */}
-          <div className="grid grid-cols-4 gap-3 md:gap-5 w-full">
-            {GRID_ITEMS.map((item, i) => (
-              <div 
-                key={i} 
-                className="flex flex-col gap-3 cursor-pointer group/item"
-                onMouseEnter={() => setActiveFeature(i)}
-                onMouseLeave={() => setActiveFeature(null)}
-                onClick={() => setActiveFeature(activeFeature === i ? null : i)}
-              >
-                <div className={`relative w-full aspect-[4/3] shadow-md overflow-hidden transition-all duration-300 ${activeFeature === i ? 'ring-2 ring-offset-2 ring-[#C5A059] ring-offset-[#F2E8D9]' : ''}`}>
-                  <Image 
-                    src={item.src} 
-                    fill 
-                    className="object-cover group-hover/item:scale-105 transition-transform duration-700" 
-                    alt={item.title} 
-                    sizes="(max-width: 1024px) 25vw, 15vw"
+      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16">
+
+        {/* ════════════════════════════════════════════════════
+            DESKTOP / TABLET  (lg:grid)
+        ════════════════════════════════════════════════════ */}
+        <div className="hidden lg:grid grid-cols-12 gap-10 xl:gap-16 items-center min-h-[80vh]">
+
+          {/* LEFT — image */}
+          <div className="col-span-5 xl:col-span-5 relative flex flex-col items-center justify-center">
+            {/* decorative ring behind image */}
+            <div className="absolute -inset-6 rounded-3xl border border-[#C5A97B]/15 z-0" />
+            <div className="absolute -inset-12 rounded-3xl border border-[#C5A97B]/07 z-0" />
+
+            {/* Stacked images — all mounted, crossfade via opacity */}
+            <div className="relative w-full rounded-2xl overflow-hidden shadow-[0_30px_80px_rgba(0,0,0,0.14)] border border-[#E5DDD3] z-10">
+              {SLIDES.map((s, i) => (
+                <motion.div
+                  key={s.id}
+                  animate={{ opacity: i === active ? 1 : 0, scale: i === active ? 1 : 1.04 }}
+                  transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+                  className={i === 0 ? "relative w-full" : "absolute inset-0 w-full"}
+                  style={{ pointerEvents: i === active ? "auto" : "none" }}
+                >
+                  <Image
+                    src={s.image}
+                    alt={s.label}
+                    width={900}
+                    height={1200}
+                    className="w-full h-auto object-cover"
+                    sizes="(max-width: 1400px) 45vw, 600px"
+                    quality={95}
+                    priority={i === 0}
                   />
-                  <div className={`absolute inset-0 bg-white/30 transition-opacity duration-500 ${activeFeature === i ? 'opacity-0' : 'opacity-100 group-hover/item:opacity-0'}`} />
-                </div>
-                <span className={`text-[9px] md:text-[11px] text-center tracking-[0.15em] font-semibold transition-colors duration-300 ${activeFeature === i ? 'text-[#C5A059]' : 'text-luxury-gray'}`}>
-                  {item.title}
+                </motion.div>
+              ))}
+
+              {/* corner watermark */}
+              <div className="absolute bottom-5 left-5 z-20">
+                <span className="text-white/60 text-[9px] tracking-[0.25em] uppercase font-sans font-medium">
+                  Digital Interactive Invitations
                 </span>
               </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Right Side: Content */}
-        <div className="col-span-1 lg:col-span-6 flex flex-col justify-center h-full pt-2 lg:pt-0 lg:pl-10">
-          
-          <div className="mb-8 lg:mb-10">
-            <div className="flex items-center gap-4 mb-4 lg:mb-6">
-              <span className="w-8 h-[1px] bg-[#C5A059]"></span>
-              <h3 className="text-[#C5A059] tracking-[0.2em] text-[10px] md:text-xs font-semibold uppercase">
-                What We Build
-              </h3>
-              <span className="w-16 md:w-24 h-[1px] bg-[#C5A059]"></span>
             </div>
-            
-            <h2 className="font-serif text-3xl md:text-5xl lg:text-[3.25rem] leading-[1.1] mb-4 lg:mb-6 text-luxury-gray tracking-tight">
-              More Than a Website.<br />
-              A First Impression.
-            </h2>
-            
-            <p className="font-sans text-luxury-gray/85 text-sm lg:text-[15px] leading-relaxed max-w-[460px]">
-              Every wedding tells a unique story, and it begins the moment guests tap your link. We build fully custom animated websites — not templates — designed around your colors, your photos, and your day.
-            </p>
+
+            {/* slide counter under image */}
+            <div className="flex items-center gap-3 mt-8 self-start ml-2">
+              <button onClick={prev} aria-label="Previous slide"
+                className="w-8 h-8 rounded-full border border-[#C5A97B]/40 flex items-center justify-center text-[#8B6B3D] hover:bg-[#C5A97B]/10 transition-colors duration-300">
+                <svg width="12" height="10" viewBox="0 0 12 10" fill="none">
+                  <path d="M11 5H1M5 1L1 5l4 4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
+              {SLIDES.map((s, i) => (
+                <button
+                  key={s.id}
+                  onClick={() => goTo(i)}
+                  aria-label={`Go to slide ${i + 1}`}
+                  className="flex items-center gap-2 group"
+                >
+                  <span className={`text-[10px] font-semibold tracking-widest transition-colors duration-300 ${i === active ? "text-[#8B6B3D]" : "text-[#B0A090]/60"}`}>
+                    0{i + 1}
+                  </span>
+                  <span className={`block h-[1.5px] transition-all duration-500 rounded-full ${i === active ? "w-10 bg-[#C5A97B]" : "w-4 bg-[#C5A97B]/25 group-hover:bg-[#C5A97B]/50"}`} />
+                </button>
+              ))}
+              <button onClick={next} aria-label="Next slide"
+                className="w-8 h-8 rounded-full border border-[#C5A97B]/40 flex items-center justify-center text-[#8B6B3D] hover:bg-[#C5A97B]/10 transition-colors duration-300">
+                <svg width="12" height="10" viewBox="0 0 12 10" fill="none">
+                  <path d="M1 5h10M7 1l4 4-4 4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
+            </div>
           </div>
 
-          <div className="flex flex-col gap-6 lg:gap-8 mb-10 lg:mb-12 border-l border-[#C5A059]/30 pl-4 md:pl-8 ml-2 md:ml-4">
-            {FEATURES.map((feature, idx) => (
-              <div 
-                key={idx}
-                className="group flex gap-6 items-start cursor-pointer relative"
-                onMouseEnter={() => setActiveFeature(idx)}
-                onMouseLeave={() => setActiveFeature(null)}
-                onClick={() => setActiveFeature(activeFeature === idx ? null : idx)}
-              >
-                {/* Circular Icon */}
-                <div className="w-12 h-12 md:w-14 md:h-14 rounded-full border border-[#C5A059] flex items-center justify-center text-[#C5A059] shrink-0 transition-transform duration-500 group-hover:bg-[#C5A059] group-hover:text-white">
-                  {feature.icon}
+          {/* RIGHT — content */}
+          <div className="col-span-7 xl:col-span-7 flex flex-col justify-center pl-4 xl:pl-10">
+            <AnimatePresence mode="wait">
+              <motion.div key={slide.id} className="flex flex-col">
+
+                {/* eyebrow */}
+                <motion.div
+                  variants={textVariants} custom={0}
+                  initial="enter" animate="center" exit="exit"
+                  className="flex items-center gap-4 mb-6"
+                >
+                  <span className="w-8 h-[1px] bg-[#C5A97B]" />
+                  <span className="text-[#8B6B3D] text-[10px] tracking-[0.35em] font-semibold uppercase font-sans">
+                    {slide.label}
+                  </span>
+                </motion.div>
+
+                {/* heading */}
+                <motion.h2
+                  variants={textVariants} custom={0.05}
+                  initial="enter" animate="center" exit="exit"
+                  className="font-serif text-4xl xl:text-5xl 2xl:text-[3.4rem] leading-[1.1] text-[#1A1A1A] font-light tracking-tight mb-5 whitespace-pre-line"
+                >
+                  {slide.heading}
+                </motion.h2>
+
+                {/* thin rule */}
+                <motion.div
+                  variants={textVariants} custom={0.1}
+                  initial="enter" animate="center" exit="exit"
+                  className="flex items-center gap-3 mb-5"
+                >
+                  <div className="h-[1px] w-8 bg-[#C5A97B]/50" />
+                  <div className="w-1 h-1 rounded-full bg-[#C5A97B]/70" />
+                  <div className="h-[1px] w-8 bg-[#C5A97B]/50" />
+                </motion.div>
+
+                {/* description */}
+                <motion.p
+                  variants={textVariants} custom={0.15}
+                  initial="enter" animate="center" exit="exit"
+                  className="font-sans text-[#4A4A4A] text-[15px] leading-relaxed max-w-[480px] mb-10"
+                >
+                  {slide.description}
+                </motion.p>
+
+                {/* features */}
+                <div className="flex flex-col gap-7 mb-10 border-l border-[#C5A97B]/25 pl-6">
+                  {slide.features.map((f, i) => (
+                    <motion.div
+                      key={f.num}
+                      custom={i}
+                      variants={featureVariants}
+                      initial="enter"
+                      animate="center"
+                      exit="exit"
+                      className="flex flex-col gap-1"
+                    >
+                      <div className="flex items-center gap-3 mb-0.5">
+                        <span className="text-[#C5A97B] text-[10px] font-bold tracking-[0.2em]">{f.num}</span>
+                        <span className="h-[1px] w-4 bg-[#C5A97B]/40" />
+                        <h4 className="font-sans text-[11px] font-bold tracking-[0.12em] text-[#1A1A1A] uppercase">
+                          {f.title}
+                        </h4>
+                      </div>
+                      <p className="font-sans text-[#5A5A5A] text-sm leading-relaxed max-w-[400px]">{f.desc}</p>
+                    </motion.div>
+                  ))}
                 </div>
-                
-                {/* Feature Text */}
-                <div className="flex flex-col justify-center pt-1">
-                  <div className="flex gap-4 items-center mb-1">
-                    <span className="text-[#C5A059] text-xs font-semibold tracking-widest">{feature.num}</span>
-                    <h4 className="font-sans text-[13px] md:text-[14px] font-bold tracking-[0.1em] text-luxury-gray uppercase">
-                      {feature.title}
-                    </h4>
-                  </div>
-                  <p className="text-luxury-gray/70 text-sm leading-relaxed max-w-[320px]">
-                    {feature.desc}
+
+                {/* bottom quote */}
+                <motion.div
+                  variants={textVariants} custom={0.55}
+                  initial="enter" animate="center" exit="exit"
+                  className="flex items-start gap-5"
+                >
+                  <div className="w-[1px] h-12 bg-[#C5A97B]/50 shrink-0 mt-1" />
+                  <p className="font-serif italic text-[#5A4A3A] text-lg xl:text-xl font-light leading-snug">
+                    "{slide.quote}"
                   </p>
-                </div>
-              </div>
+                </motion.div>
+
+              </motion.div>
+            </AnimatePresence>
+          </div>
+        </div>
+
+        {/* ════════════════════════════════════════════════════
+            MOBILE  (< lg)
+        ════════════════════════════════════════════════════ */}
+        <div className="flex flex-col gap-8 lg:hidden">
+
+          {/* image — stacked all 3, crossfade via opacity */}
+          <div className="relative w-full rounded-xl overflow-hidden shadow-[0_16px_50px_rgba(0,0,0,0.12)] border border-[#E5DDD3]">
+            {SLIDES.map((s, i) => (
+              <motion.div
+                key={s.id}
+                animate={{ opacity: i === active ? 1 : 0, scale: i === active ? 1 : 1.04 }}
+                transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+                className={i === 0 ? "relative w-full" : "absolute inset-0 w-full"}
+                style={{ pointerEvents: i === active ? "auto" : "none" }}
+              >
+                <Image
+                  src={s.image}
+                  alt={s.label}
+                  width={800}
+                  height={1100}
+                  className="w-full h-auto object-cover"
+                  sizes="100vw"
+                  quality={90}
+                  priority={i === 0}
+                />
+              </motion.div>
             ))}
           </div>
 
-          <div className="relative w-full max-w-[500px]">
-            <a href="/demo" className="inline-block border border-[#C5A059] text-luxury-gray text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase py-3 px-8 md:py-4 md:px-10 hover:bg-[#C5A059] hover:text-white transition-all duration-500 w-fit">
-              See Live Demos &rarr;
-            </a>
-            <div className="absolute right-0 md:right-4 top-14 md:top-4 opacity-70 transform rotate-[-2deg]">
-              <p className="font-serif italic text-luxury-gray text-base md:text-lg text-right">
-                It's more than a link,<br/>
-                it's the beginning of forever.
-              </p>
-              <div className="w-16 md:w-24 h-[1px] bg-[#C5A059] ml-auto mt-2"></div>
-            </div>
+          {/* mobile text */}
+          <AnimatePresence mode="wait">
+            <motion.div key={slide.id} className="flex flex-col gap-5">
+
+              <motion.div variants={textVariants} custom={0} initial="enter" animate="center" exit="exit"
+                className="flex items-center gap-3">
+                <span className="w-6 h-[1px] bg-[#C5A97B]" />
+                <span className="text-[#8B6B3D] text-[10px] tracking-[0.3em] font-semibold uppercase">{slide.label}</span>
+              </motion.div>
+
+              <motion.h2 variants={textVariants} custom={0.05} initial="enter" animate="center" exit="exit"
+                className="font-serif text-3xl sm:text-4xl text-[#1A1A1A] font-light leading-[1.12] whitespace-pre-line">
+                {slide.heading}
+              </motion.h2>
+
+              <motion.p variants={textVariants} custom={0.1} initial="enter" animate="center" exit="exit"
+                className="font-sans text-[#4A4A4A] text-sm leading-relaxed">
+                {slide.description}
+              </motion.p>
+
+              <div className="flex flex-col gap-5 border-l border-[#C5A97B]/25 pl-5">
+                {slide.features.map((f, i) => (
+                  <motion.div key={f.num} custom={i} variants={featureVariants} initial="enter" animate="center" exit="exit"
+                    className="flex flex-col gap-0.5">
+                    <div className="flex items-center gap-2 mb-0.5">
+                      <span className="text-[#C5A97B] text-[10px] font-bold tracking-widest">{f.num}</span>
+                      <span className="h-[1px] w-3 bg-[#C5A97B]/40" />
+                      <h4 className="font-sans text-[10px] font-bold tracking-[0.12em] text-[#1A1A1A] uppercase">{f.title}</h4>
+                    </div>
+                    <p className="font-sans text-[#5A5A5A] text-sm leading-relaxed">{f.desc}</p>
+                  </motion.div>
+                ))}
+              </div>
+
+              <motion.div variants={textVariants} custom={0.4} initial="enter" animate="center" exit="exit"
+                className="flex items-start gap-4 pt-1">
+                <div className="w-[1px] h-10 bg-[#C5A97B]/50 shrink-0 mt-1" />
+                <p className="font-serif italic text-[#5A4A3A] text-base font-light leading-snug">"{slide.quote}"</p>
+              </motion.div>
+
+            </motion.div>
+          </AnimatePresence>
+
+          {/* mobile indicator */}
+          <div className="flex items-center justify-center gap-4 pt-2">
+            <button onClick={prev} aria-label="Previous slide"
+              className="w-8 h-8 rounded-full border border-[#C5A97B]/40 flex items-center justify-center text-[#8B6B3D]">
+              <svg width="12" height="10" viewBox="0 0 12 10" fill="none">
+                <path d="M11 5H1M5 1L1 5l4 4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+            {SLIDES.map((s, i) => (
+              <button key={s.id} onClick={() => goTo(i)} aria-label={`Go to slide ${i + 1}`}
+                className="flex items-center gap-1.5">
+                <span className={`text-[10px] font-semibold tracking-widest transition-colors duration-300 ${i === active ? "text-[#8B6B3D]" : "text-[#B0A090]/50"}`}>
+                  0{i + 1}
+                </span>
+                <span className={`block h-[1.5px] rounded-full transition-all duration-500 ${i === active ? "w-8 bg-[#C5A97B]" : "w-3 bg-[#C5A97B]/25"}`} />
+              </button>
+            ))}
+            <button onClick={next} aria-label="Next slide"
+              className="w-8 h-8 rounded-full border border-[#C5A97B]/40 flex items-center justify-center text-[#8B6B3D]">
+              <svg width="12" height="10" viewBox="0 0 12 10" fill="none">
+                <path d="M1 5h10M7 1l4 4-4 4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
           </div>
-          
+
         </div>
+      </div>
+
+      {/* ── Progress bar at bottom ── */}
+      <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#C5A97B]/10 z-20">
+        <motion.div
+          key={active}
+          className="h-full bg-[#C5A97B]/50"
+          initial={{ width: "0%" }}
+          animate={{ width: "100%" }}
+          transition={{ duration: 3, ease: "linear" }}
+        />
       </div>
     </section>
   );

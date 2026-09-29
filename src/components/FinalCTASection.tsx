@@ -44,7 +44,7 @@ export default function FinalCTASection() {
             transition={{ duration: 0.9, delay: 0.1, ease: "easeOut" }}
             className="text-4xl md:text-5xl lg:text-6xl font-serif text-luxury-gray mb-10 leading-tight"
           >
-            Beautiful invitations for your<br className="hidden lg:block" /> beautiful beginning.
+            Beautiful websites for your<br className="hidden lg:block" /> beautiful beginning.
           </motion.h2>
 
           <motion.div
@@ -79,7 +79,7 @@ export default function FinalCTASection() {
           >
             <Image
               src="https://res.cloudinary.com/dclxwdpki/image/upload/v1789102946/ChatGPT_Image_Sep_11_2026_10_31_51_AM_rviheu.png"
-              alt="Luxury wedding invitation detail"
+              alt="Luxury digital platform detail"
               fill
               className="object-cover object-center shadow-2xl rounded-sm"
             />

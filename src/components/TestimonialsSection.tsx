@@ -1,39 +1,39 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
 const REVIEWS = [
   {
     id: 1,
-    name: "Mo Omar",
+    name: "Ayesha & Daniel",
     rating: 5,
-    text: "“I had my wedding cards made by Wedding Cards, and they went above and beyond my expectations. The quality is outstanding, the design is elegant, and the price is very reasonable for the high standard of work. I would highly recommend them to anyone looking for wedding cards or other print services.”",
+    text: "We were blown away by our digital wedding website. The animations were absolutely cinematic — our guests kept messaging us saying it felt like opening a movie. Every detail was customized to us, and it went live in just 2 days. Worth every penny!",
   },
   {
     id: 2,
-    name: "Liba Shafiq",
+    name: "Hannah & Oliver",
     rating: 5,
-    text: "“I recently purchased cards from them for my birthday. The designs were exquisite, capturing the essence of my special day perfectly. The quality of the cards exceeded my expectations. The customization options allowed us to personalize our invitations, making them truly unique. Overall, good wedding cards a wonderful choice to make a lasting impression on your guests and set the tone for your celebration.”",
+    text: "I never thought a digital wedding invitation could feel this personal and luxurious. Our guests didn't believe it was a link — they thought it was a high-end film. The scroll animations with our photos were breathtaking. Truly unforgettable.",
   },
   {
     id: 3,
-    name: "Aisha Shafiq",
+    name: "Emily & James",
     rating: 5,
-    text: "“I recently bought from WEDDING CARDS & ALL DESIGN/PRINT SERVICES AT ARTWORK STUDIO and I must say I'm impressed. The print quality was excellent, capturing intricate details vividly. The cardstock used was durable, giving the cards a professional feel. The ordering process was straightforward, and the customer service is great. Overall, a reliable choice for high-quality card printing.”",
+    text: "We replaced our traditional printed cards with a digital wedding website and we have zero regrets. It was live within 3 days, worked perfectly on every phone, and our families loved being able to revisit it. The design matched our vision exactly.",
   },
   {
     id: 4,
-    name: "imran riaz",
+    name: "Sophia & William",
     rating: 5,
-    text: "“My experience of wedding card printing from art work studio is highly appreciatable . Quality versus price is also admirable. Designs are unique. I recommend this studio for others. Also I must say that this studio meet the deadlines of tasks assigned to them. Best wishes. Thank you art work studio.”",
+    text: "The team created something beyond what I imagined. The animated envelope opening, our photos fading in, the music — it all felt like a dream. Guests from overseas said it made them feel part of the celebration even from far away.",
   },
   {
     id: 5,
-    name: "Raiyyat Abbas",
+    name: "Fatima & Rayan",
     rating: 5,
-    text: "“I highly recommend for anyone in search of exquisite wedding cards. With their stunning designs, impeccable quality, and outstanding customer service, they truly exceeded my expectations. Thank you,for helping make my brother wedding day even more special”",
+    text: "Starting from $199, I was honestly expecting something basic. What I received was a full cinematic wedding experience. Custom colors, our love story, RSVP built in, and a live link ready before our invites even needed to go out. Absolutely stunning.",
   },
 ];
 
@@ -61,12 +61,6 @@ const GoogleIcon = () => (
     />
     <path fill="none" d="M0 0h48v48H0z" />
   </svg>
-);
-
-const Stars = () => (
-  <div className="flex space-x-1 text-gold text-lg">
-    {"★★★★★"}
-  </div>
 );
 
 export default function TestimonialsSection() {
@@ -97,13 +91,13 @@ export default function TestimonialsSection() {
           className="flex flex-col items-center md:items-start mb-16 text-center md:text-left"
         >
           <span className="text-gold tracking-widest text-xs uppercase font-medium mb-4 block">
-            CUSTOMER LOVE
+            COUPLE LOVE
           </span>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-luxury-gray mb-6">
-            What Our Customers Say
+            What Couples Are Saying
           </h2>
           <p className="text-lg text-luxury-gray/70 max-w-xl">
-            Real experiences from customers who trusted us with their printing and stationery.
+            Real experiences from couples who shared their love story through a beautiful digital wedding invitation.
           </p>
 
           <div className="mt-8 flex flex-col items-center md:items-start">
@@ -119,7 +113,7 @@ export default function TestimonialsSection() {
           {/* Featured Review (Left/Center) */}
           <div className="w-full lg:w-1/2 relative min-h-[300px]">
             <div className="absolute -top-12 -left-6 text-gold/10 font-serif text-[180px] leading-none select-none z-0">
-              "
+              &ldquo;
             </div>
             <AnimatePresence mode="wait">
               <motion.div
@@ -132,7 +126,7 @@ export default function TestimonialsSection() {
               >
                 <div className="text-2xl tracking-widest text-gold mb-6">★★★★★</div>
                 <p className="text-xl md:text-2xl font-serif text-luxury-gray leading-relaxed mb-8">
-                  {activeReview.text}
+                  &ldquo;{activeReview.text}&rdquo;
                 </p>
                 <div className="flex items-center justify-between border-t border-champagne pt-6">
                   <div>
@@ -183,7 +177,6 @@ export default function TestimonialsSection() {
               </div>
             </div>
 
-            {/* Hidden scrollbar container for mobile swipe, stacked cards on desktop */}
             <div className="flex overflow-x-auto pb-8 -mx-6 px-6 lg:mx-0 lg:px-0 lg:flex-col lg:overflow-visible space-x-4 lg:space-x-0 lg:space-y-4 snap-x snap-mandatory hide-scrollbar">
               {REVIEWS.map((review, idx) => (
                 <div
@@ -216,7 +209,7 @@ export default function TestimonialsSection() {
 
         <div className="mt-20 flex justify-center">
           <a
-            href="https://google.com" // Placeholder for GBP URL
+            href="https://google.com"
             target="_blank"
             rel="noopener noreferrer"
             className="group flex items-center text-sm font-medium text-luxury-gray uppercase tracking-widest hover:text-gold transition-colors duration-300"

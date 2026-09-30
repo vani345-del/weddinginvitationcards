@@ -87,10 +87,12 @@ const SLIDES = [
 ];
 
 /* ─── Framer variants ────────────────────────────────────── */
+const easeCurve: [number, number, number, number] = [0.16, 1, 0.3, 1];
+
 const imgVariants = {
   enter: { opacity: 0, scale: 1.04 },
-  center: { opacity: 1, scale: 1, transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] } },
-  exit: { opacity: 0, scale: 0.97, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } },
+  center: { opacity: 1, scale: 1, transition: { duration: 0.9, ease: easeCurve } },
+  exit: { opacity: 0, scale: 0.97, transition: { duration: 0.6, ease: easeCurve } },
 };
 
 const textVariants = {
@@ -98,9 +100,9 @@ const textVariants = {
   center: (delay: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, delay, ease: [0.16, 1, 0.3, 1] },
+    transition: { duration: 0.7, delay, ease: easeCurve },
   }),
-  exit: { opacity: 0, y: -14, transition: { duration: 0.4, ease: "easeIn" } },
+  exit: { opacity: 0, y: -14, transition: { duration: 0.4, ease: "easeIn" as const } },
 };
 
 const featureVariants = {
@@ -108,7 +110,7 @@ const featureVariants = {
   center: (i: number) => ({
     opacity: 1,
     x: 0,
-    transition: { duration: 0.55, delay: 0.35 + i * 0.1, ease: [0.16, 1, 0.3, 1] },
+    transition: { duration: 0.55, delay: 0.35 + i * 0.1, ease: easeCurve },
   }),
   exit: { opacity: 0, x: -10, transition: { duration: 0.3 } },
 };

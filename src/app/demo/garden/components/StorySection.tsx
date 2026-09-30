@@ -37,7 +37,7 @@ function MilestoneItem({ item, index, isLast }: { item: typeof MILESTONES[0], in
   const isEven = index % 2 === 0;
   
   // Custom premium easing
-  const customEase = [0.22, 1, 0.36, 1];
+  const customEase: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
   return (
     <div ref={ref} className={`relative flex w-full flex-col md:flex-row ${isEven ? "" : "md:flex-row-reverse"} gap-0 py-6 md:py-10`}>
@@ -144,7 +144,7 @@ export default function StorySection() {
   const cornerDecorY1 = useTransform(scrollYProgress, [0, 1], ["0%", "15%"]);
   const cornerDecorY2 = useTransform(scrollYProgress, [0, 1], ["0%", "-15%"]);
 
-  const customEase = [0.22, 1, 0.36, 1];
+  const customEase: [number, number, number, number] = [0.22, 1, 0.36, 1];
   const noiseSvg = "data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E";
 
   return (

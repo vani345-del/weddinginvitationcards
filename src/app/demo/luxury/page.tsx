@@ -2,6 +2,8 @@
 
 import dynamic from "next/dynamic";
 import React, { useState, useEffect } from "react";
+import InvitationShowcase from "@/components/InvitationShowcase";
+import Footer from "@/components/Footer";
 
 // Lazy-load the Cinematic Story since it uses GSAP/Browser APIs
 const CinematicStory = dynamic(() => import("./CinematicStory"), {
@@ -22,7 +24,7 @@ const WeddingDetailsScene = dynamic(() => import("./WeddingDetailsScene"), {
 
 export default function LuxuryDemo() {
   const getCountdown = () => {
-    const difference = new Date("2026-03-20T16:00:00").getTime() - new Date().getTime();
+    const difference = new Date("2028-03-20T16:00:00").getTime() - new Date().getTime();
     if (difference > 0) {
       return {
         days: Math.floor(difference / (1000 * 60 * 60 * 24)),
@@ -309,11 +311,50 @@ export default function LuxuryDemo() {
         <img className="lux-rsvp-floral-right" src="/illustrated_wedding_assets/righttree.png" alt="" aria-hidden="true" />
       </section>
 
-      {/* SECTION 6: Footer */}
-      <footer className="lux-footer">
+      {/* ── Love This Experience Section ── */}
+      <section className="w-full bg-[#0a0b08] pt-32 pb-24 flex flex-col items-center border-t border-white/5 relative z-50">
+        <h2 className="text-4xl md:text-5xl font-light text-[#FAF7F2] mb-10 text-center" style={{ fontFamily: 'Cormorant Garamond, serif' }}>
+          Love this <em className="italic text-[#C9A96E]">experience?</em>
+        </h2>
+        <a 
+          href="mailto:contact@yourdomain.com" 
+          className="px-10 py-5 border border-[#C9A96E] rounded-full text-xs tracking-[0.2em] uppercase text-[#1A1614] bg-[#C9A96E] font-bold shadow-[0_0_40px_rgba(201,169,110,0.4)] hover:scale-105 hover:bg-[#DBC396] transition-all text-center"
+          style={{ fontFamily: "sans-serif" }}
+        >
+          Create Your Own Invitation
+        </a>
+      </section>
+
+      {/* ── Divider ── */}
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-[#C9A96E]/20 to-transparent relative z-50" />
+
+      {/* ── Explore Other Experiences ── */}
+      <div className="relative z-50 bg-[#FAF8F5]">
+        <InvitationShowcase />
+
+        <div className="w-full flex justify-center pb-24">
+          <a
+            href="/"
+            className="inline-flex items-center gap-2 px-10 py-5 bg-[#8B6B3D] text-[#FAF8F5] text-[11px] tracking-[0.25em] uppercase font-bold font-sans rounded-full hover:bg-[#5A4A3A] transition-all shadow-[0_0_20px_rgba(139,107,61,0.2)]"
+          >
+            Back to Home Page
+          </a>
+        </div>
+      </div>
+
+      {/* ── Divider ── */}
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-[#C5A97B]/30 to-transparent relative z-50" />
+
+      {/* SECTION 6: Template Footer */}
+      <footer className="lux-footer relative z-50">
         <h2 className="lux-footer-names">Emma <span>&amp;</span> James</h2>
-        <p className="lux-footer-copy">20 March 2026 — Mumbai — With love &amp; gratitude</p>
+        <p className="lux-footer-copy">20 March 2028 — Mumbai — With love &amp; gratitude</p>
       </footer>
+      
+      {/* Main Site Footer */}
+      <div className="relative z-50">
+        <Footer />
+      </div>
     </main>
   );
 }

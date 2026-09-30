@@ -3,6 +3,8 @@
 import { useEffect, useState, useMemo, useRef } from "react";
 import StorySection from "./components/StorySection";
 import BackgroundMusic from "./components/BackgroundMusic";
+import InvitationShowcase from "@/components/InvitationShowcase";
+import Footer from "@/components/Footer";
 
 export default function EmmaJamesCinematic() {
   const WEDDING = new Date('2028-03-20T10:00:00');
@@ -655,13 +657,13 @@ export default function EmmaJamesCinematic() {
 
         .ej-countdown-content {
           position: relative; z-index: 10;
-          padding: 2rem;
+          padding: clamp(1rem, 4vw, 2rem);
         }
 
         .ej-countdown-title {
           font-family: var(--ej-cormorant-garamond), var(--ej-serif);
           font-style: italic;
-          font-size: clamp(40px, 8vw, 80px);
+          font-size: clamp(32px, 8vw, 80px);
           color: #f5c4d0; /* Rose tinted */
           margin-bottom: 2rem;
           font-weight: 300;
@@ -671,30 +673,32 @@ export default function EmmaJamesCinematic() {
           font-family: Italianno, cursive;
           font-size: 1.2em;
           color: #e4c5c4;
-          margin: 0 10px;
+          margin: 0 clamp(4px, 1.5vw, 10px);
         }
 
         .ej-countdown-subtitle {
           font-family: 'Montserrat', sans-serif;
           font-weight: 300;
-          font-size: 14px; letter-spacing: 0.3em;
+          font-size: clamp(10px, 3vw, 14px); letter-spacing: 0.3em;
           text-transform: uppercase;
-          margin-bottom: 4rem;
+          margin-bottom: clamp(2rem, 6vw, 4rem);
           color: rgba(255,255,255,0.8);
         }
 
         .ej-countdown-timer {
-          display: flex; gap: 3vw; justify-content: center;
+          display: flex; 
+          gap: clamp(8px, 2vw, 30px); 
+          justify-content: center;
           font-family: 'Montserrat', sans-serif;
         }
 
         .ej-countdown-item {
           display: flex; flex-direction: column; align-items: center;
-          width: 80px;
+          width: clamp(60px, 15vw, 80px);
         }
 
         .ej-countdown-value {
-          font-size: clamp(36px, 6vw, 64px);
+          font-size: clamp(28px, 8vw, 64px);
           font-weight: 300;
           line-height: 1;
           color: #fff;
@@ -708,8 +712,8 @@ export default function EmmaJamesCinematic() {
 
         .ej-countdown-label {
           margin-top: 10px;
-          font-size: 11px;
-          letter-spacing: 0.2em;
+          font-size: clamp(8px, 2.5vw, 11px);
+          letter-spacing: 0.15em;
           text-transform: uppercase;
           color: rgba(255,255,255,0.6);
         }
@@ -1237,19 +1241,52 @@ export default function EmmaJamesCinematic() {
             <div className="ej-closing-mark">E <i>&</i> J</div>
           </section>
 
-          {/* Template Promotion Footer */}
-          <footer className="w-full bg-[#0a0b08] py-20 flex flex-col items-center border-t border-white/5 relative z-50">
-            <p className="text-base font-medium text-[#FAF7F2] mb-8 px-4 text-center" style={{ fontFamily: "var(--ej-sans)" }}>
-              Want a beautiful digital invitation like this for your own wedding?
-            </p>
+          {/* ── Love This Experience Section ── */}
+          <section className="w-full bg-[#0a0b08] pt-32 pb-24 flex flex-col items-center border-t border-white/5 relative z-50">
+            <h2 className="text-4xl md:text-5xl font-light text-[#FAF7F2] mb-10 text-center" style={{ fontFamily: 'Cormorant Garamond, serif' }}>
+              Love this <em className="italic text-[#C9A96E]">experience?</em>
+            </h2>
             <a 
               href="mailto:contact@yourdomain.com" 
-              className="px-10 py-4 border border-[#C9A96E] rounded-full text-xs tracking-widest uppercase text-[#1A1614] bg-[#C9A96E] font-bold shadow-[0_0_30px_rgba(201,169,110,0.5)] hover:scale-105 hover:bg-[#DBC396] transition-all text-center"
+              className="px-10 py-5 border border-[#C9A96E] rounded-full text-xs tracking-[0.2em] uppercase text-[#1A1614] bg-[#C9A96E] font-bold shadow-[0_0_40px_rgba(201,169,110,0.4)] hover:scale-105 hover:bg-[#DBC396] transition-all text-center"
+              style={{ fontFamily: "var(--ej-sans)" }}
             >
-              Contact Me to Use This Template
+              Create Your Own Invitation
             </a>
+          </section>
+
+          {/* ── Divider ── */}
+          <div className="w-full h-px bg-gradient-to-r from-transparent via-[#C9A96E]/20 to-transparent relative z-50" />
+
+          {/* ── Explore Other Experiences ── */}
+          <div className="relative z-50 bg-[#FAF8F5]">
+            {/* The component already has the cards (Garden, Fairytale, Superhero) */}
+            <InvitationShowcase />
+
+            <div className="w-full flex justify-center pb-24">
+              <a
+                href="/"
+                className="inline-flex items-center gap-2 px-10 py-5 bg-[#8B6B3D] text-[#FAF8F5] text-[11px] tracking-[0.25em] uppercase font-bold font-sans rounded-full hover:bg-[#5A4A3A] transition-all shadow-[0_0_20px_rgba(139,107,61,0.2)]"
+              >
+                Back to Home Page
+              </a>
+            </div>
+          </div>
+
+          {/* ── Divider ── */}
+          <div className="w-full h-px bg-gradient-to-r from-transparent via-[#C5A97B]/30 to-transparent relative z-50" />
+
+          {/* ── Footer ── */}
+          <footer className="w-full bg-[#0a0b08] py-16 flex flex-col items-center relative z-50 gap-4">
+            <p style={{ fontFamily: 'Italianno, cursive', fontSize: '48px', color: 'rgba(250,247,242,0.6)', margin: 0, lineHeight: 1 }}>Emma &amp; James</p>
+            <p style={{ fontFamily: 'var(--ej-sans)', fontSize: '10px', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'rgba(250,247,242,0.3)', margin: 0 }}>Garden Romance · Digital Wedding Invitation</p>
           </footer>
           <BackgroundMusic />
+          
+          {/* Main Site Footer */}
+          <div className="relative z-50">
+            <Footer />
+          </div>
         </main>
 
         {/* RSVP Dialog */}

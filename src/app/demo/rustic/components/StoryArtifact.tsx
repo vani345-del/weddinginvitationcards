@@ -21,12 +21,15 @@ export default function StoryArtifact() {
 
     const handleCamera = (e: any) => {
       const { absX, screenX, screenY } = e.detail;
+      const isMobile = window.innerWidth <= 768;
+      const distanceMultiplier = isMobile ? 0.8 : 1; // Slightly closer on mobile, but speed handles the rest
       
       STORY_MILESTONES.forEach((milestone, idx) => {
         if (collectedIds.has(milestone.id)) return;
 
         // Calculate screen position based on player's absolute travel
-        const artifactScreenX = screenX + (milestone.x - absX);
+        const adjustedX = milestone.x * distanceMultiplier;
+        const artifactScreenX = screenX + (adjustedX - absX);
         const artifactScreenY = screenY + 20;
 
         const el = artifactRefs.current[idx];

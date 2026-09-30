@@ -7,10 +7,12 @@ import MidForegroundCity from "./components/MidForegroundCity";
 import SwingEnvironment from "./components/SwingEnvironment";
 import SuperheroCouple from "./components/SuperheroCouple";
 import StoryArtifact from "./components/StoryArtifact";
+import InvitationShowcase from "@/components/InvitationShowcase";
+import Footer from "@/components/Footer";
 
 const WEDDING_DATA = {
   coupleNames: "PETER & MARY JANE",
-  weddingDate: "2026-10-14",
+  weddingDate: "2028-10-14",
   weddingTime: "16:00:00",
   ceremonyTime: "4:00 PM",
   receptionTime: "6:00 PM",
@@ -74,11 +76,50 @@ export default function SuperheroWeddingDemo() {
          <VenueBlock />
       </section>
 
-      {/* PROMO FOOTER CTA */}
-      <footer className="promo-footer">
-        <h4 className="promo-text">Do you want this style of template?</h4>
-        <a href="mailto:contact@example.com" className="promo-btn">CONTACT US</a>
+      {/* ── Love This Experience Section ── */}
+      <section className="w-full bg-[#0a0b08] pt-32 pb-24 flex flex-col items-center border-t border-white/5 relative z-50">
+        <h2 className="text-4xl md:text-5xl font-light text-[#FAF7F2] mb-10 text-center" style={{ fontFamily: 'Cormorant Garamond, serif' }}>
+          Love this <em className="italic text-[#C9A96E]">experience?</em>
+        </h2>
+        <a 
+          href="mailto:contact@yourdomain.com" 
+          className="px-10 py-5 border border-[#C9A96E] rounded-full text-xs tracking-[0.2em] uppercase text-[#1A1614] bg-[#C9A96E] font-bold shadow-[0_0_40px_rgba(201,169,110,0.4)] hover:scale-105 hover:bg-[#DBC396] transition-all text-center"
+          style={{ fontFamily: "sans-serif" }}
+        >
+          Create Your Own Invitation
+        </a>
+      </section>
+
+      {/* ── Divider ── */}
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-[#C9A96E]/20 to-transparent relative z-50" />
+
+      {/* ── Explore Other Experiences ── */}
+      <div className="relative z-50 bg-[#FAF8F5]">
+        <InvitationShowcase />
+
+        <div className="w-full flex justify-center pb-24">
+          <a
+            href="/"
+            className="inline-flex items-center gap-2 px-10 py-5 bg-[#8B6B3D] text-[#FAF8F5] text-[11px] tracking-[0.25em] uppercase font-bold font-sans rounded-full hover:bg-[#5A4A3A] transition-all shadow-[0_0_20px_rgba(139,107,61,0.2)]"
+          >
+            Back to Home Page
+          </a>
+        </div>
+      </div>
+
+      {/* ── Divider ── */}
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-[#C5A97B]/30 to-transparent relative z-50" />
+
+      {/* SECTION 4: Template Footer */}
+      <footer className="w-full bg-[#050814] py-16 flex flex-col items-center relative z-50 gap-4">
+        <h2 style={{ fontFamily: "'Cinzel', serif", fontSize: '28px', color: '#fff', letterSpacing: '6px', margin: 0 }}>PETER &amp; MARY JANE</h2>
+        <p style={{ fontFamily: 'var(--ej-sans)', fontSize: '10px', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', margin: 0 }}>Superhero Edition · Digital Wedding Invitation</p>
       </footer>
+      
+      {/* Main Site Footer */}
+      <div className="relative z-50">
+        <Footer />
+      </div>
 
       <style>{`
         /* Global Reset for this page */
@@ -111,7 +152,7 @@ export default function SuperheroWeddingDemo() {
 
         .exit-story-btn {
           position: absolute;
-          bottom: 25px;
+          top: 40px;
           left: 50%;
           transform: translateX(-50%);
           z-index: 100;
@@ -136,7 +177,7 @@ export default function SuperheroWeddingDemo() {
 
         @media (max-width: 768px) {
           .exit-story-btn {
-            bottom: 15px;
+            top: 25px;
             padding: 8px 24px;
             font-size: 0.8rem;
           }

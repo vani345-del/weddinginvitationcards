@@ -100,8 +100,9 @@ export default function SuperheroCouple() {
       }
 
       if (!isPausedRef.current) {
-        const ACCEL = vw * 0.0009; // Faster acceleration
-        const MAX_SPEED = vw * 0.013; // Much higher horizontal velocity for a faster rush
+        const isMobileScreen = vw <= 768;
+        const ACCEL = isMobileScreen ? (vw * 0.004) : (vw * 0.0015); // Much faster acceleration
+        const MAX_SPEED = isMobileScreen ? (vw * 0.045) : (vw * 0.02); // Higher max speed
         const FRICTION = 0.92; // Gliding effect when button released
 
         if (moveState.current === 'left') {
@@ -344,17 +345,18 @@ export default function SuperheroCouple() {
           pointer-events: none;
         }
         .game-controls-hint {
-          color: rgba(255, 255, 255, 0.7);
+          color: #ffffff;
+          font-weight: bold;
           font-size: 0.75rem;
           letter-spacing: 2px;
           text-transform: uppercase;
           text-align: center;
-          text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+          text-shadow: 0 2px 8px rgba(0,0,0,1), 0 0 10px rgba(0,0,0,0.8);
           animation: pulse-hint 2.5s infinite alternate;
         }
         @keyframes pulse-hint {
-          0% { opacity: 0.5; }
-          100% { opacity: 1; }
+          0% { opacity: 0.8; }
+          100% { opacity: 1; text-shadow: 0 2px 8px rgba(0,0,0,1), 0 0 12px rgba(255,255,255,0.6); }
         }
         .game-controls {
           display: flex;

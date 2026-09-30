@@ -44,6 +44,7 @@ export default function BackgroundMusic() {
       <AnimatePresence>
         {!hasInteracted && (
           <motion.div 
+            key="music-overlay"
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 1 }}

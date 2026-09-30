@@ -37,7 +37,7 @@ export default function HeroScrollSequence({ className, children, progress }: He
     const loadFrame = (i: number) => {
       const img = new Image();
       const indexStr = i.toString().padStart(5, "0");
-      img.src = `/wedding_website_frames_24fps_best_quality/frame_${indexStr}.png`;
+      img.src = `/edititall/frame_${indexStr}.webp`;
       img.onload = () => {
         loadedImages[i - 1] = img;
         loadedCount++;

@@ -32,7 +32,7 @@ const STEPS = [
 ];
 
 export default function HowItWorksSection() {
-  const containerVariants = {
+  const containerVariants: any = {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
@@ -43,7 +43,7 @@ export default function HowItWorksSection() {
     }
   };
 
-  const itemVariants = {
+  const itemVariants: any = {
     hidden: { opacity: 0, y: 30 },
     show: { 
       opacity: 1, 

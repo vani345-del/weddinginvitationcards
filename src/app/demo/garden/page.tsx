@@ -372,9 +372,6 @@ export default function EmmaJamesCinematic() {
         .ej-hero-wall-bg {
           position: absolute; inset: 0;
           background-color: #391211; /* The main hero environment color */
-          background-image: url('/herobg.png');
-          background-position: center;
-          background-size: cover;
           /* clip-path is applied dynamically via JS to punch the perfect arch hole */
         }
 
@@ -1026,7 +1023,9 @@ export default function EmmaJamesCinematic() {
             {/* The Zooming Portal (Scales up to fly through) */}
             <div className="ej-hero-portal">
               {/* Image Wall around the door (Arch hole is punched via JS clip-path) */}
-              <div className="ej-hero-wall-bg" />
+              <div className="ej-hero-wall-bg">
+                <img src="/herobg.png" alt="Garden Wall" style={{ width: '100%', height: '100%', objectFit: 'cover' }} loading="eager" />
+              </div>
 
               {/* The actual hole containing the doors */}
               <div className="ej-hero-hole">

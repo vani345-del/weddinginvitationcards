@@ -76,17 +76,37 @@ export default function HeroScrollSequence({ className, children, progress }: He
       Math.max(0, currentFrame - 1)
     );
     
-    const img = images[currentIndex];
+    let img = images[currentIndex];
     
-    // Only draw if image is loaded
+    // Fallback: If current frame is not loaded, find the closest previous loaded frame
+    if (!img || !img.complete) {
+      for (let i = currentIndex - 1; i >= 0; i--) {
+        if (images[i] && images[i].complete) {
+          img = images[i];
+          break;
+        }
+      }
+    }
+    
+    // If we STILL don't have an image, look forward just to have something on screen
+    if (!img || !img.complete) {
+      for (let i = currentIndex + 1; i < FRAME_COUNT; i++) {
+        if (images[i] && images[i].complete) {
+          img = images[i];
+          break;
+        }
+      }
+    }
+    
+    // Only draw if we found a valid loaded image
     if (img && img.complete) {
       // Clear canvas
       context.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
       
       const canvasWidth = canvasRef.current.width;
       const canvasHeight = canvasRef.current.height;
-      const imgWidth = img.width;
-      const imgHeight = img.height;
+      const imgWidth = img.width || 1920;
+      const imgHeight = img.height || 1080;
 
       const scale = Math.max(canvasWidth / imgWidth, canvasHeight / imgHeight);
       const x = (canvasWidth / 2) - (imgWidth / 2) * scale;
@@ -101,13 +121,24 @@ export default function HeroScrollSequence({ className, children, progress }: He
     renderFrame();
   });
 
-  // Handle canvas resize and initial draw when loaded
+  const windowSize = useRef({ width: 0, height: 0 });
+
+  // Handle canvas resize
   useEffect(() => {
     const handleResize = () => {
       if (!canvasRef.current) return;
-      // Make canvas high res
-      canvasRef.current.width = window.innerWidth;
-      canvasRef.current.height = window.innerHeight;
+      
+      const newWidth = window.innerWidth;
+      const newHeight = window.innerHeight;
+      
+      // Only set canvas dimensions if they actually changed to prevent accidental canvas clearing
+      if (windowSize.current.width !== newWidth || windowSize.current.height !== newHeight) {
+        canvasRef.current.width = newWidth;
+        canvasRef.current.height = newHeight;
+        windowSize.current.width = newWidth;
+        windowSize.current.height = newHeight;
+      }
+      
       renderFrame();
     };
 
@@ -115,7 +146,12 @@ export default function HeroScrollSequence({ className, children, progress }: He
     handleResize(); // Initial sizing
 
     return () => window.removeEventListener("resize", handleResize);
-  }, [images, imagesLoaded]); // Re-run when images finish loading so it draws the first frame
+  }, []); // Run once on mount
+
+  // Redraw when new images load (e.g. if we were stuck waiting for a frame)
+  useEffect(() => {
+    renderFrame();
+  }, [imagesLoaded]);
 
   // Show content after first 30 frames are ready — user sees page fast
   // Remaining frames continue loading silently in background while user scrolls

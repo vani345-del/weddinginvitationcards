@@ -74,20 +74,20 @@ export default function TestimonialsSection() {
             {/* Column 1 */}
             <div className="flex flex-col gap-4 md:gap-6">
               <motion.div variants={itemVariants} className="w-full relative rounded-3xl overflow-hidden border border-[#E8DDD0] shadow-[0_12px_40px_rgba(0,0,0,0.06)] hover:-translate-y-2 transition-transform duration-500">
-                <Image src="/review.png" alt="Customer Review" width={800} height={1000} className="w-full h-auto object-cover" />
+                <Image src="/review.png" alt="Customer Review" width={800} height={1000} className="w-full h-auto object-cover" sizes="(max-width: 640px) 100vw, 50vw" quality={85} />
               </motion.div>
               <motion.div variants={itemVariants} className="w-full relative rounded-3xl overflow-hidden border border-[#E8DDD0] shadow-[0_12px_40px_rgba(0,0,0,0.06)] hover:-translate-y-2 transition-transform duration-500">
-                <Image src="/review3.png" alt="Customer Review" width={800} height={1000} className="w-full h-auto object-cover" />
+                <Image src="/review3.png" alt="Customer Review" width={800} height={1000} className="w-full h-auto object-cover" sizes="(max-width: 640px) 100vw, 50vw" quality={85} />
               </motion.div>
             </div>
 
             {/* Column 2 (Staggered down slightly on desktop) */}
             <div className="flex flex-col gap-4 md:gap-6 sm:mt-10">
               <motion.div variants={itemVariants} className="w-full relative rounded-3xl overflow-hidden border border-[#E8DDD0] shadow-[0_12px_40px_rgba(0,0,0,0.06)] hover:-translate-y-2 transition-transform duration-500">
-                <Image src="/reviews4.png" alt="Customer Review" width={800} height={1000} className="w-full h-auto object-cover" />
+                <Image src="/reviews4.png" alt="Customer Review" width={800} height={1000} className="w-full h-auto object-cover" sizes="(max-width: 640px) 100vw, 50vw" quality={85} />
               </motion.div>
               <motion.div variants={itemVariants} className="w-full relative rounded-3xl overflow-hidden border border-[#E8DDD0] shadow-[0_12px_40px_rgba(0,0,0,0.06)] hover:-translate-y-2 transition-transform duration-500">
-                <Image src="/reviews5.png" alt="Customer Review" width={800} height={1000} className="w-full h-auto object-cover" />
+                <Image src="/reviews5.png" alt="Customer Review" width={800} height={1000} className="w-full h-auto object-cover" sizes="(max-width: 640px) 100vw, 50vw" quality={85} />
               </motion.div>
             </div>
           </motion.div>

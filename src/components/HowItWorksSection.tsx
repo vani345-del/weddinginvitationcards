@@ -120,7 +120,7 @@ export default function HowItWorksSection() {
               {/* Visual Container */}
               <div className="w-full max-w-[280px] lg:max-w-none aspect-[4/5] mb-8 relative flex items-center justify-center group-hover:-translate-y-1.5 transition-transform duration-500 ease-out">
                  <div className="w-full h-full relative rounded-2xl overflow-hidden border border-[#F0EAE1] shadow-[0_8px_30px_rgba(0,0,0,0.05)]">
-                   <Image src="/1card.png" alt="Choose Your Experience" fill className="object-cover" />
+                   <Image src="/1card.png" alt="Choose Your Experience" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 25vw" quality={85} />
                  </div>
                  {/* Floating Label */}
                  <div className="absolute -bottom-3 px-4 py-1.5 bg-white border border-[#E8DDD0] rounded-full shadow-sm text-[8px] tracking-[0.2em] font-semibold text-[#8B6B3D] uppercase font-sans z-10">
@@ -147,7 +147,7 @@ export default function HowItWorksSection() {
               </div>
               <div className="w-full max-w-[280px] lg:max-w-none aspect-[4/5] mb-8 relative flex items-center justify-center group-hover:-translate-y-1.5 transition-transform duration-500 ease-out">
                  <div className="w-full h-full relative rounded-2xl overflow-hidden border border-[#F0EAE1] shadow-[0_8px_30px_rgba(0,0,0,0.05)]">
-                   <Image src="/2card.png" alt="Share Your Story" fill className="object-cover" />
+                   <Image src="/2card.png" alt="Share Your Story" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 25vw" quality={85} />
                  </div>
                  <div className="absolute -bottom-3 px-4 py-1.5 bg-white border border-[#E8DDD0] rounded-full shadow-sm text-[8px] tracking-[0.2em] font-semibold text-[#8B6B3D] uppercase font-sans z-10">
                    {STEPS[1].label}
@@ -170,7 +170,7 @@ export default function HowItWorksSection() {
               </div>
               <div className="w-full max-w-[280px] lg:max-w-none aspect-[4/5] mb-8 relative flex items-center justify-center group-hover:-translate-y-1.5 transition-transform duration-500 ease-out">
                  <div className="w-full h-full relative rounded-2xl overflow-hidden border border-[#F0EAE1] shadow-[0_8px_30px_rgba(0,0,0,0.05)]">
-                   <Image src="/3card.png" alt="We Bring It to Life" fill className="object-cover" />
+                   <Image src="/3card.png" alt="We Bring It to Life" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 25vw" quality={85} />
                  </div>
                  <div className="absolute -bottom-3 px-4 py-1.5 bg-white border border-[#E8DDD0] rounded-full shadow-sm text-[8px] tracking-[0.2em] font-semibold text-[#8B6B3D] uppercase font-sans z-10">
                    {STEPS[2].label}
@@ -193,7 +193,7 @@ export default function HowItWorksSection() {
               </div>
               <div className="w-full max-w-[280px] lg:max-w-none aspect-[4/5] mb-8 relative flex items-center justify-center group-hover:-translate-y-1.5 transition-transform duration-500 ease-out">
                  <div className="w-full h-full relative rounded-2xl overflow-hidden border border-[#F0EAE1] shadow-[0_8px_30px_rgba(0,0,0,0.05)]">
-                   <Image src="/4card.png" alt="Share One Beautiful Link" fill className="object-cover" />
+                   <Image src="/4card.png" alt="Share One Beautiful Link" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 25vw" quality={85} />
                  </div>
                  <div className="absolute -bottom-3 px-4 py-1.5 bg-white border border-[#E8DDD0] rounded-full shadow-sm text-[8px] tracking-[0.2em] font-semibold text-[#8B6B3D] uppercase font-sans z-10">
                    {STEPS[3].label}

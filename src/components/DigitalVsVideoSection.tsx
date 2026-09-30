@@ -124,8 +124,7 @@ export default function DigitalVsVideoSection() {
 
             {/* Video Player Mockup */}
             <div className="relative w-full aspect-video bg-[#1A1A1A] rounded-xl overflow-hidden shadow-2xl border-4 border-[#3A3A3A]/20">
-              {/* Video thumbnail using real image */}
-              <Image src="/ourstory.png" alt="Video Thumbnail" fill className="object-cover opacity-80" />
+              <Image src="/ourstory.png" alt="Video Thumbnail" fill className="object-cover opacity-80" sizes="(max-width: 1024px) 100vw, 50vw" quality={85} />
               <div className="absolute inset-0 bg-black/20" />
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center cursor-pointer hover:scale-105 transition-transform">
@@ -204,7 +203,7 @@ export default function DigitalVsVideoSection() {
                   </div>
                   {/* Fake hero */}
                   <div className="relative w-full h-[calc(100%-2rem)] flex flex-col items-center justify-center p-4 text-center overflow-hidden">
-                     <Image src="/1template.png" alt="Laptop background" fill className="object-cover opacity-90" />
+                     <Image src="/1template.png" alt="Laptop background" fill className="object-cover opacity-90" sizes="(max-width: 1024px) 100vw, 50vw" quality={85} />
                      <div className="absolute inset-0 bg-gradient-to-t from-[#FAF8F5] via-[#FAF8F5]/40 to-transparent" />
                      <div className="relative z-10">
                        <span className="block text-[7px] tracking-[0.3em] text-[#8B6B3D] font-bold uppercase mb-1 drop-shadow-sm">Our Wedding</span>
@@ -224,12 +223,12 @@ export default function DigitalVsVideoSection() {
                {/* Mobile Website UI */}
                <div className="w-full h-full overflow-hidden flex flex-col bg-[#FAF8F5]">
                   <div className="relative h-24 overflow-hidden">
-                     <Image src="/2template.png" alt="Mobile header" fill className="object-cover" />
+                     <Image src="/2template.png" alt="Mobile header" fill className="object-cover" sizes="(max-width: 1024px) 50vw, 25vw" quality={85} />
                      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#FAF8F5]" />
                   </div>
                   <div className="p-3 flex flex-col gap-2 -mt-10 relative z-10">
                      <div className="w-full aspect-[4/3] bg-white rounded-lg shadow-sm overflow-hidden relative border border-[#E8DDD0]">
-                         <Image src="/3template1.png" alt="Gallery preview" fill className="object-cover" />
+                         <Image src="/3template1.png" alt="Gallery preview" fill className="object-cover" sizes="(max-width: 1024px) 50vw, 25vw" quality={85} />
                      </div>
                      <div className="text-[10px] font-serif text-[#8B6B3D] mt-2">RSVP</div>
                      <div className="w-full h-6 bg-white rounded shadow-sm border border-[#E8DDD0]" />

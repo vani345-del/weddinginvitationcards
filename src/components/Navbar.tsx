@@ -43,18 +43,7 @@ export default function Navbar() {
           DIGITAL INTERACTIVE INVITATIONS
         </Link>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-10">
-          <Link href="/" className="text-sm font-semibold tracking-wider uppercase text-luxury-gray/90 hover:text-gold transition-colors">
-            Home
-          </Link>
-          <Link href="/templates" className="text-sm font-semibold tracking-wider uppercase text-luxury-gray/90 hover:text-gold transition-colors">
-            Templates
-          </Link>
-          <Link href="/about" className="text-sm font-semibold tracking-wider uppercase text-luxury-gray/90 hover:text-gold transition-colors">
-            About
-          </Link>
-        </nav>
+
 
         {/* Desktop CTA */}
         <div className="hidden md:block">
@@ -84,15 +73,6 @@ export default function Navbar() {
         )}
       >
         <div className="px-6 py-8 flex flex-col space-y-6 text-center">
-          <Link href="/" className="text-sm font-semibold tracking-wider uppercase text-luxury-gray hover:text-gold transition-colors">
-            Home
-          </Link>
-          <Link href="/templates" className="text-sm font-semibold tracking-wider uppercase text-luxury-gray hover:text-gold transition-colors">
-            Templates
-          </Link>
-          <Link href="/about" className="text-sm font-semibold tracking-wider uppercase text-luxury-gray hover:text-gold transition-colors">
-            About
-          </Link>
           <Link
             href="/contact"
             className="inline-block mt-4 mx-auto px-8 py-3 bg-gold text-ivory text-xs font-semibold tracking-widest uppercase transition-colors"

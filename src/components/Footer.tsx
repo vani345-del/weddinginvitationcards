@@ -65,15 +65,15 @@ const GoogleIcon = () => (
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-[#1c1a18] text-ivory pt-20 pb-8 px-6 md:px-12 border-t border-luxury-gray">
+    <footer className="w-full bg-[#1A1A1A] text-white pt-20 pb-8 px-6 md:px-12 border-t border-[#3A3A3A]">
       <div className="max-w-7xl mx-auto">
         {/* Footer Top / Brand */}
         <div className="mb-16 md:mb-24 flex flex-col items-center md:items-start text-center md:text-left">
-          <h2 className="text-3xl md:text-4xl font-serif tracking-wide mb-4">
-            THE WEDDING CARDS
+          <h2 className="text-3xl md:text-4xl font-serif tracking-wide mb-4 text-[#F8F5EF]">
+            THE WEDDING EXPERIENCE
           </h2>
-          <p className="text-champagne/80 max-w-md text-sm leading-relaxed">
-            Beautiful wedding invitations and stationery, crafted to make your celebration unforgettable.
+          <p className="text-[#A0A0A0] max-w-md text-sm leading-relaxed font-sans font-light">
+            Beautiful, interactive digital wedding invitations crafted to share your love story and make your celebration unforgettable.
           </p>
         </div>
 
@@ -81,40 +81,40 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
           {/* Column 1 */}
           <div className="flex flex-col space-y-4 text-center md:text-left">
-            <h3 className="text-xs tracking-widest uppercase text-gold font-medium mb-2">Explore</h3>
-            <Link href="/" className="text-champagne/70 hover:text-gold transition-colors text-sm">Home</Link>
-            <Link href="/invitations" className="text-champagne/70 hover:text-gold transition-colors text-sm">Our Invitations</Link>
-            <Link href="/wedding-cards" className="text-champagne/70 hover:text-gold transition-colors text-sm">Wedding Cards</Link>
-            <Link href="/collections" className="text-champagne/70 hover:text-gold transition-colors text-sm">Collections</Link>
+            <h3 className="text-[11px] tracking-[0.2em] uppercase text-[#8B6B3D] font-semibold mb-2">Explore</h3>
+            <Link href="/" className="text-[#A0A0A0] hover:text-[#C5A97B] transition-colors text-sm font-light">Home</Link>
+            <Link href="/experiences" className="text-[#A0A0A0] hover:text-[#C5A97B] transition-colors text-sm font-light">Our Experiences</Link>
+            <Link href="/how-it-works" className="text-[#A0A0A0] hover:text-[#C5A97B] transition-colors text-sm font-light">How It Works</Link>
+            <Link href="/pricing" className="text-[#A0A0A0] hover:text-[#C5A97B] transition-colors text-sm font-light">Pricing</Link>
           </div>
 
           {/* Column 2 */}
           <div className="flex flex-col space-y-4 text-center md:text-left">
-            <h3 className="text-xs tracking-widest uppercase text-gold font-medium mb-2">Information</h3>
-            <Link href="/about" className="text-champagne/70 hover:text-gold transition-colors text-sm">About Us</Link>
-            <Link href="/delivery" className="text-champagne/70 hover:text-gold transition-colors text-sm">Delivery</Link>
-            <Link href="/faqs" className="text-champagne/70 hover:text-gold transition-colors text-sm">FAQs</Link>
-            <Link href="/contact" className="text-champagne/70 hover:text-gold transition-colors text-sm">Contact</Link>
+            <h3 className="text-[11px] tracking-[0.2em] uppercase text-[#8B6B3D] font-semibold mb-2">Information</h3>
+            <Link href="/about" className="text-[#A0A0A0] hover:text-[#C5A97B] transition-colors text-sm font-light">Our Story</Link>
+            <Link href="/faqs" className="text-[#A0A0A0] hover:text-[#C5A97B] transition-colors text-sm font-light">FAQs</Link>
+            <Link href="/custom-quotes" className="text-[#A0A0A0] hover:text-[#C5A97B] transition-colors text-sm font-light">Custom Quotes</Link>
+            <Link href="/contact" className="text-[#A0A0A0] hover:text-[#C5A97B] transition-colors text-sm font-light">Contact Us</Link>
           </div>
 
           {/* Column 3 */}
           <div className="flex flex-col space-y-4 text-center md:text-left">
-            <h3 className="text-xs tracking-widest uppercase text-gold font-medium mb-2">Services</h3>
-            <Link href="/services/wedding-invitations" className="text-champagne/70 hover:text-gold transition-colors text-sm">Wedding Invitations</Link>
-            <Link href="/services/wedding-stationery" className="text-champagne/70 hover:text-gold transition-colors text-sm">Wedding Stationery</Link>
-            <Link href="/services/custom-designs" className="text-champagne/70 hover:text-gold transition-colors text-sm">Custom Designs</Link>
-            <Link href="/services/printing" className="text-champagne/70 hover:text-gold transition-colors text-sm">Printing Services</Link>
+            <h3 className="text-[11px] tracking-[0.2em] uppercase text-[#8B6B3D] font-semibold mb-2">Features</h3>
+            <span className="text-[#A0A0A0] text-sm font-light">Personalized Designs</span>
+            <span className="text-[#A0A0A0] text-sm font-light">Digital RSVP Tracking</span>
+            <span className="text-[#A0A0A0] text-sm font-light">Interactive Maps</span>
+            <span className="text-[#A0A0A0] text-sm font-light">Custom Animations</span>
           </div>
 
           {/* Column 4 */}
           <div className="flex flex-col space-y-6 text-center md:text-left">
             <div className="flex flex-col space-y-4">
-              <h3 className="text-xs tracking-widest uppercase text-gold font-medium mb-2">Connect</h3>
+              <h3 className="text-[11px] tracking-[0.2em] uppercase text-[#8B6B3D] font-semibold mb-2">Connect</h3>
               <div className="flex justify-center md:justify-start space-x-6">
-                <a href="#" className="text-champagne/70 hover:text-gold transition-colors" aria-label="Instagram">
+                <a href="#" className="text-[#A0A0A0] hover:text-[#C5A97B] transition-colors" aria-label="Instagram">
                   <InstagramIcon />
                 </a>
-                <a href="#" className="text-champagne/70 hover:text-gold transition-colors" aria-label="Facebook">
+                <a href="#" className="text-[#A0A0A0] hover:text-[#C5A97B] transition-colors" aria-label="Facebook">
                   <FacebookIcon />
                 </a>
               </div>
@@ -122,18 +122,16 @@ export default function Footer() {
 
             {/* Google Reviews Trust Element */}
             <div className="pt-2">
-              <div className="flex items-center justify-center md:justify-start space-x-2 text-sm text-ivory mb-2">
+              <div className="flex items-center justify-center md:justify-start space-x-2 text-sm text-white mb-2">
                 <GoogleIcon />
                 <span className="font-medium tracking-wide">Google Reviews</span>
               </div>
-              <div className="text-gold tracking-widest text-lg mb-2 flex justify-center md:justify-start">
+              <div className="text-[#8B6B3D] tracking-widest text-lg mb-2 flex justify-center md:justify-start">
                 ★★★★★
               </div>
               <a 
-                href="https://google.com" 
-                target="_blank"
-                rel="noreferrer"
-                className="text-[10px] tracking-widest uppercase text-champagne/70 hover:text-gold transition-colors inline-block mt-1"
+                href="#" 
+                className="text-[10px] tracking-[0.15em] uppercase text-[#A0A0A0] hover:text-[#C5A97B] transition-colors inline-block mt-1 font-semibold"
               >
                 READ OUR REVIEWS →
               </a>
@@ -143,33 +141,28 @@ export default function Footer() {
 
         {/* Contact Area */}
         <div className="flex justify-center md:justify-start mb-16 text-center md:text-left">
-          <div className="flex flex-col sm:flex-row items-center sm:space-x-8 space-y-4 sm:space-y-0 text-sm text-champagne/60">
+          <div className="flex flex-col sm:flex-row items-center sm:space-x-8 space-y-4 sm:space-y-0 text-[13px] text-[#A0A0A0] font-light">
             <div>
-              <span className="block text-gold text-xs tracking-widest uppercase mb-1">Phone</span>
-              <a href="#" className="hover:text-champagne transition-colors">+44 (0) 1234 567890</a>
+              <span className="block text-[#8B6B3D] text-[10px] tracking-[0.2em] font-semibold uppercase mb-1">Email</span>
+              <a href="mailto:hello@theweddingexperience.com" className="hover:text-[#C5A97B] transition-colors">hello@theweddingexperience.com</a>
             </div>
-            <div className="hidden sm:block text-champagne/20">|</div>
+            <div className="hidden sm:block text-[#3A3A3A]">|</div>
             <div>
-              <span className="block text-gold text-xs tracking-widest uppercase mb-1">Email</span>
-              <a href="mailto:hello@theweddingcards.co.uk" className="hover:text-champagne transition-colors">hello@theweddingcards.co.uk</a>
-            </div>
-            <div className="hidden sm:block text-champagne/20">|</div>
-            <div>
-              <span className="block text-gold text-xs tracking-widest uppercase mb-1">Location</span>
-              <span>United Kingdom</span>
+              <span className="block text-[#8B6B3D] text-[10px] tracking-[0.2em] font-semibold uppercase mb-1">Location</span>
+              <span>Global / Remote</span>
             </div>
           </div>
         </div>
 
         {/* Divider */}
-        <div className="w-full h-px bg-champagne/10 mb-8" />
+        <div className="w-full h-px bg-[#3A3A3A] mb-8" />
 
         {/* Footer Bottom */}
-        <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0 text-xs text-champagne/50">
-          <p>© 2026 The Wedding Cards. All rights reserved.</p>
+        <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0 text-xs text-[#8A8A8A] font-light">
+          <p>© 2026 The Wedding Experience. All rights reserved.</p>
           <div className="flex space-x-6">
-            <Link href="/privacy-policy" className="hover:text-gold transition-colors">Privacy Policy</Link>
-            <Link href="/terms" className="hover:text-gold transition-colors">Terms & Conditions</Link>
+            <Link href="/privacy-policy" className="hover:text-[#C5A97B] transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-[#C5A97B] transition-colors">Terms & Conditions</Link>
           </div>
         </div>
       </div>

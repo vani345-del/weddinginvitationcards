@@ -62,10 +62,10 @@ export default function FinalCTASection() {
               <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
             </a>
             <a
-              href="/contact"
+              href="https://instagram.com/your_instagram_handle" target="_blank" rel="noopener noreferrer"
               className="group w-full sm:w-auto flex items-center justify-center px-8 py-4 bg-transparent border border-gold/40 text-luxury-gray uppercase tracking-widest text-xs font-medium hover:bg-gold/10 hover:border-gold/60 transition-all duration-300 rounded-sm"
             >
-              Get In Touch
+              Order via Instagram
               <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
             </a>
           </motion.div>

@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 import React, { useState, useEffect } from "react";
 import InvitationShowcase from "@/components/InvitationShowcase";
 import Footer from "@/components/Footer";
+import BackgroundMusic from "./BackgroundMusic";
 
 // Lazy-load the Cinematic Story since it uses GSAP/Browser APIs
 const CinematicStory = dynamic(() => import("./CinematicStory"), {
@@ -73,6 +74,7 @@ export default function LuxuryDemo() {
 
   return (
     <main style={{ background: "#F8F4EC", overflowX: "hidden" }}>
+      <BackgroundMusic />
       {/* Our custom CSS for the remaining sections */}
       <style>{`
         :root {
@@ -317,11 +319,11 @@ export default function LuxuryDemo() {
           Love this <em className="italic text-[#C9A96E]">experience?</em>
         </h2>
         <a 
-          href="mailto:contact@yourdomain.com" 
+          href="https://instagram.com/your_instagram_handle" target="_blank" rel="noopener noreferrer" 
           className="px-10 py-5 border border-[#C9A96E] rounded-full text-xs tracking-[0.2em] uppercase text-[#1A1614] bg-[#C9A96E] font-bold shadow-[0_0_40px_rgba(201,169,110,0.4)] hover:scale-105 hover:bg-[#DBC396] transition-all text-center"
           style={{ fontFamily: "sans-serif" }}
         >
-          Create Your Own Invitation
+          Order via Instagram
         </a>
       </section>
 

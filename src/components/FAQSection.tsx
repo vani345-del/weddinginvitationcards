@@ -169,7 +169,7 @@ export default function FAQSection() {
           </h3>
           
           <Link
-            href="/contact"
+            href="https://instagram.com/your_instagram_handle" target="_blank" rel="noopener noreferrer"
             className="group inline-flex items-center gap-3 px-8 py-3.5 bg-[#FAF8F5] border border-[#E8DDD0] text-[#1A1A1A] text-[11px] tracking-[0.25em] uppercase font-semibold font-sans rounded-full shadow-sm transition-all duration-300 hover:border-[#8B6B3D] hover:shadow-md hover:bg-white hover:-translate-y-1"
           >
             Get In Touch

@@ -179,7 +179,7 @@ export default function PricingSection() {
                   ))}
                 </ul>
 
-                <button
+                <button onClick={() => window.open('https://instagram.com/your_instagram_handle', '_blank')}
                   className={`w-full py-4 px-6 rounded-full font-sans text-[11px] tracking-[0.25em] uppercase font-semibold transition-all duration-300
                     ${plan.highlight 
                       ? "bg-[#1A1A1A] text-white hover:bg-[#8B6B3D] shadow-md hover:shadow-lg" 
@@ -229,7 +229,7 @@ export default function PricingSection() {
           </p>
           
           <Link
-            href="/contact"
+            href="https://instagram.com/your_instagram_handle" target="_blank" rel="noopener noreferrer"
             className="group inline-flex items-center gap-3 px-8 py-3.5 bg-[#1A1A1A] text-white text-[11px] tracking-[0.25em] uppercase font-semibold font-sans rounded-full shadow-md transition-all duration-300 hover:bg-[#8B6B3D] hover:shadow-lg hover:-translate-y-1"
           >
             Request a Custom Quote

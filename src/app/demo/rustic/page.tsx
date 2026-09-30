@@ -9,6 +9,7 @@ import SuperheroCouple from "./components/SuperheroCouple";
 import StoryArtifact from "./components/StoryArtifact";
 import InvitationShowcase from "@/components/InvitationShowcase";
 import Footer from "@/components/Footer";
+import BackgroundMusic from "./components/BackgroundMusic";
 
 const WEDDING_DATA = {
   coupleNames: "PETER & MARY JANE",
@@ -47,6 +48,7 @@ export default function SuperheroWeddingDemo() {
 
   return (
     <div className="wedding-wrapper">
+      <BackgroundMusic />
       {/* HERO / LOVE STORY SECTION */}
       <section id="hero-section" className="superhero-wedding-scene">
         <NightSky />
@@ -82,11 +84,11 @@ export default function SuperheroWeddingDemo() {
           Love this <em className="italic text-[#C9A96E]">experience?</em>
         </h2>
         <a 
-          href="mailto:contact@yourdomain.com" 
+          href="https://instagram.com/your_instagram_handle" target="_blank" rel="noopener noreferrer" 
           className="px-10 py-5 border border-[#C9A96E] rounded-full text-xs tracking-[0.2em] uppercase text-[#1A1614] bg-[#C9A96E] font-bold shadow-[0_0_40px_rgba(201,169,110,0.4)] hover:scale-105 hover:bg-[#DBC396] transition-all text-center"
           style={{ fontFamily: "sans-serif" }}
         >
-          Create Your Own Invitation
+          Order via Instagram
         </a>
       </section>
 

@@ -1058,7 +1058,7 @@ export default function EmmaJamesCinematic() {
             {/* Template Contact Button (Centered at the top for maximum visibility) */}
             <div className="absolute top-12 left-1/2 -translate-x-1/2 z-[100]">
               <a 
-                href="mailto:contact@yourdomain.com"
+                href="https://instagram.com/your_instagram_handle" target="_blank" rel="noopener noreferrer"
                 className="px-8 py-4 border border-[#C9A96E] rounded-full text-xs tracking-[0.2em] uppercase text-[#1A1614] bg-[#C9A96E] font-bold shadow-[0_0_30px_rgba(201,169,110,0.5)] hover:scale-105 hover:bg-[#DBC396] transition-all flex items-center gap-2 whitespace-nowrap"
               >
                 Use This Template <span>↗</span>
@@ -1247,11 +1247,11 @@ export default function EmmaJamesCinematic() {
               Love this <em className="italic text-[#C9A96E]">experience?</em>
             </h2>
             <a 
-              href="mailto:contact@yourdomain.com" 
+              href="https://instagram.com/your_instagram_handle" target="_blank" rel="noopener noreferrer" 
               className="px-10 py-5 border border-[#C9A96E] rounded-full text-xs tracking-[0.2em] uppercase text-[#1A1614] bg-[#C9A96E] font-bold shadow-[0_0_40px_rgba(201,169,110,0.4)] hover:scale-105 hover:bg-[#DBC396] transition-all text-center"
               style={{ fontFamily: "var(--ej-sans)" }}
             >
-              Create Your Own Invitation
+              Order via Instagram
             </a>
           </section>
 

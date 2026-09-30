@@ -94,7 +94,7 @@ export default function Footer() {
             <Link href="/about" className="text-[#A0A0A0] hover:text-[#C5A97B] transition-colors text-sm font-light">Our Story</Link>
             <Link href="/faqs" className="text-[#A0A0A0] hover:text-[#C5A97B] transition-colors text-sm font-light">FAQs</Link>
             <Link href="/custom-quotes" className="text-[#A0A0A0] hover:text-[#C5A97B] transition-colors text-sm font-light">Custom Quotes</Link>
-            <Link href="/contact" className="text-[#A0A0A0] hover:text-[#C5A97B] transition-colors text-sm font-light">Contact Us</Link>
+            <Link href="https://instagram.com/your_instagram_handle" target="_blank" rel="noopener noreferrer" className="text-[#A0A0A0] hover:text-[#C5A97B] transition-colors text-sm font-light">Contact Us</Link>
           </div>
 
           {/* Column 3 */}
@@ -144,7 +144,7 @@ export default function Footer() {
           <div className="flex flex-col sm:flex-row items-center sm:space-x-8 space-y-4 sm:space-y-0 text-[13px] text-[#A0A0A0] font-light">
             <div>
               <span className="block text-[#8B6B3D] text-[10px] tracking-[0.2em] font-semibold uppercase mb-1">Email</span>
-              <a href="mailto:hello@theweddingexperience.com" className="hover:text-[#C5A97B] transition-colors">hello@theweddingexperience.com</a>
+              <a href="https://instagram.com/your_instagram_handle" target="_blank" rel="noopener noreferrer" className="hover:text-[#C5A97B] transition-colors">@your_instagram_handle</a>
             </div>
             <div className="hidden sm:block text-[#3A3A3A]">|</div>
             <div>

@@ -243,14 +243,14 @@ export default function SuperheroCouple() {
         <div ref={groupRef} className="cl-group">
           <div className="cl-male-slot">
             <div ref={mInRef} className="cl-inner" style={{ transform: 'scaleX(-1)' }}>
-              <Image src="/clear_spiderman1.png" alt="Male Superhero"
+              <Image src="/spiderman1.png" alt="Male Superhero"
                 fill style={{ objectFit: 'contain', objectPosition: 'center bottom' }} priority />
             </div>
           </div>
 
           <div className="cl-female-slot">
             <div ref={fInRef} className="cl-inner">
-              <Image src="/clear_spiderwomen1.png" alt="Female Superhero"
+              <Image src="/spiderwomen1.png" alt="Female Superhero"
                 fill style={{ objectFit: 'contain', objectPosition: 'center bottom' }} priority />
             </div>
           </div>

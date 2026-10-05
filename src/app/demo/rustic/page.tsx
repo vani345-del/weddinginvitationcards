@@ -786,8 +786,8 @@ function CountdownBlock({ onGoToDetails }: { onGoToDetails: () => void }) {
       
       {/* Subtle Couple Asset Above */}
       <div className="countdown-couple">
-        <img src="/clear_spiderman1.png" alt="Groom" className="c-male" />
-        <img src="/clear_spiderwomen1.png" alt="Bride" className="c-female" />
+        <img src="/spiderman1.png" alt="Groom" className="c-male" />
+        <img src="/spiderwomen1.png" alt="Bride" className="c-female" />
       </div>
 
       <p className="countdown-eyebrow">✦ OUR NEXT CHAPTER ✦</p>

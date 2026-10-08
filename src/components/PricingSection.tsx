@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -71,7 +71,7 @@ export default function PricingSection() {
   return (
     <section className="relative w-full pt-12 md:pt-16 lg:pt-20 pb-16 md:pb-20 lg:pb-24 bg-[#FAF8F5] overflow-hidden">
       
-      {/* ── Subtle Background Decor ── */}
+      {/* â”€â”€ Subtle Background Decor â”€â”€ */}
       <div className="absolute inset-0 pointer-events-none z-0">
         <div className="absolute -top-40 right-20 w-[600px] h-[600px] bg-[#F4E8E1]/30 rounded-full blur-[120px]" />
         <div className="absolute bottom-20 -left-20 w-[500px] h-[500px] bg-[#E8DDD0]/20 rounded-full blur-[100px]" />
@@ -87,7 +87,7 @@ export default function PricingSection() {
 
       <div className="relative z-10 w-full max-w-[1300px] mx-auto px-6 md:px-12 xl:px-16">
         
-        {/* ── Header ── */}
+        {/* â”€â”€ Header â”€â”€ */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -117,7 +117,7 @@ export default function PricingSection() {
           </p>
         </motion.div>
 
-        {/* ── Pricing Cards ── */}
+        {/* â”€â”€ Pricing Cards â”€â”€ */}
         <motion.div 
           variants={containerVariants}
           initial="hidden"
@@ -179,7 +179,7 @@ export default function PricingSection() {
                   ))}
                 </ul>
 
-                <button onClick={() => window.open('https://instagram.com/your_instagram_handle', '_blank')}
+                <button onClick={() => window.open('https://www.instagram.com/digitalweddingwebpage/', '_blank')}
                   className={`w-full py-4 px-6 rounded-full font-sans text-[11px] tracking-[0.25em] uppercase font-semibold transition-all duration-300
                     ${plan.highlight 
                       ? "bg-[#1A1A1A] text-white hover:bg-[#8B6B3D] shadow-md hover:shadow-lg" 
@@ -194,7 +194,7 @@ export default function PricingSection() {
           ))}
         </motion.div>
 
-        {/* ── Tiny Note Under Cards ── */}
+        {/* â”€â”€ Tiny Note Under Cards â”€â”€ */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -207,7 +207,7 @@ export default function PricingSection() {
           </p>
         </motion.div>
 
-        {/* ── Custom Quote Section ── */}
+        {/* â”€â”€ Custom Quote Section â”€â”€ */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -229,7 +229,7 @@ export default function PricingSection() {
           </p>
           
           <Link
-            href="https://instagram.com/your_instagram_handle" target="_blank" rel="noopener noreferrer"
+            href="https://www.instagram.com/digitalweddingwebpage/" target="_blank" rel="noopener noreferrer"
             className="group inline-flex items-center gap-3 px-8 py-3.5 bg-[#1A1A1A] text-white text-[11px] tracking-[0.25em] uppercase font-semibold font-sans rounded-full shadow-md transition-all duration-300 hover:bg-[#8B6B3D] hover:shadow-lg hover:-translate-y-1"
           >
             Request a Custom Quote

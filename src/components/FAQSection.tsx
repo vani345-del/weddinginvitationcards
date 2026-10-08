@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -6,43 +6,43 @@ import Link from "next/link";
 
 const FAQS = [
   {
-    q: "01 — What exactly is a digital wedding invitation?",
+    q: "01 â€” What exactly is a digital wedding invitation?",
     a: "It's a personalized wedding website designed around your story. Instead of sending only a video, you share one beautiful link containing your wedding details, photos, story, schedule, location, RSVP and interactive elements."
   },
   {
-    q: "02 — Can I customize the template?",
+    q: "02 â€” Can I customize the template?",
     a: "Yes. Your chosen experience is personalized with your names, photos, colors, wedding details, content and other requested elements. If you need something beyond the available designs, you can request a custom experience."
   },
   {
-    q: "03 — What happens after I place my order?",
+    q: "03 â€” What happens after I place my order?",
     a: "After you choose your experience, you'll share your wedding details, photos, preferences and any special requests with us. We then create and personalize your digital wedding experience for you."
   },
   {
-    q: "04 — How long does it take to receive my invitation?",
-    a: "Most personalized invitations are prepared within 2–3 days after we receive all required details and content. More complex custom requests may take longer."
+    q: "04 â€” How long does it take to receive my invitation?",
+    a: "Most personalized invitations are prepared within 2â€“3 days after we receive all required details and content. More complex custom requests may take longer."
   },
   {
-    q: "05 — Can I make changes after my invitation is live?",
+    q: "05 â€” Can I make changes after my invitation is live?",
     a: "Yes. Minor content updates can be requested during your active live-link period. We'll help keep your important wedding details up to date."
   },
   {
-    q: "06 — How long will my wedding website stay online?",
-    a: "You can choose the live-link duration that works for you — 1 month, 3 months, or 6 months. The selected duration begins when your invitation goes live."
+    q: "06 â€” How long will my wedding website stay online?",
+    a: "You can choose the live-link duration that works for you â€” 1 month, 3 months, or 6 months. The selected duration begins when your invitation goes live."
   },
   {
-    q: "07 — How do my guests access the invitation?",
+    q: "07 â€” How do my guests access the invitation?",
     a: "You receive one shareable link that you can send through WhatsApp, Instagram, email, text messages or anywhere else you like. Guests can open it directly on their phone, tablet or computer."
   },
   {
-    q: "08 — Can guests RSVP through the website?",
+    q: "08 â€” Can guests RSVP through the website?",
     a: "Yes. Depending on your selected experience, your invitation can include RSVP collection, event details, maps, schedules, galleries and other interactive features."
   },
   {
-    q: "09 — Can I request something that isn't shown in the templates?",
+    q: "09 â€” Can I request something that isn't shown in the templates?",
     a: "Absolutely. If you have a specific idea, animation, section or visual direction in mind, contact us for a custom quote."
   },
   {
-    q: "10 — What do I need to provide?",
+    q: "10 â€” What do I need to provide?",
     a: "We'll need your names, wedding dates and locations, event details, photos and any personal content you'd like included. We'll guide you through everything you need to send."
   }
 ];
@@ -57,7 +57,7 @@ export default function FAQSection() {
   return (
     <section className="relative w-full pt-16 md:pt-20 lg:pt-24 pb-24 md:pb-32 lg:pb-40 bg-[#FAF8F5] overflow-hidden border-t border-[#F0EAE1]/50">
       
-      {/* ── Subtle Background Decor ── */}
+      {/* â”€â”€ Subtle Background Decor â”€â”€ */}
       <div className="absolute inset-0 pointer-events-none z-0">
         <div className="absolute -top-40 -left-20 w-[600px] h-[600px] bg-[#F4E8E1]/30 rounded-full blur-[120px]" />
         <div className="absolute top-1/2 -right-40 w-[500px] h-[500px] bg-[#E8DDD0]/20 rounded-full blur-[100px]" />
@@ -73,7 +73,7 @@ export default function FAQSection() {
 
       <div className="relative z-10 w-full max-w-[1000px] mx-auto px-6 md:px-12 xl:px-0">
         
-        {/* ── Header ── */}
+        {/* â”€â”€ Header â”€â”€ */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -99,7 +99,7 @@ export default function FAQSection() {
           </p>
         </motion.div>
 
-        {/* ── Accordion ── */}
+        {/* â”€â”€ Accordion â”€â”€ */}
         <div className="w-full border-t border-[#E8DDD0]">
           {FAQS.map((faq, index) => {
             const isOpen = openIndex === index;
@@ -152,7 +152,7 @@ export default function FAQSection() {
           })}
         </div>
 
-        {/* ── Sub CTA Below FAQ ── */}
+        {/* â”€â”€ Sub CTA Below FAQ â”€â”€ */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -169,7 +169,7 @@ export default function FAQSection() {
           </h3>
           
           <Link
-            href="https://instagram.com/your_instagram_handle" target="_blank" rel="noopener noreferrer"
+            href="https://www.instagram.com/digitalweddingwebpage/" target="_blank" rel="noopener noreferrer"
             className="group inline-flex items-center gap-3 px-8 py-3.5 bg-[#FAF8F5] border border-[#E8DDD0] text-[#1A1A1A] text-[11px] tracking-[0.25em] uppercase font-semibold font-sans rounded-full shadow-sm transition-all duration-300 hover:border-[#8B6B3D] hover:shadow-md hover:bg-white hover:-translate-y-1"
           >
             Get In Touch

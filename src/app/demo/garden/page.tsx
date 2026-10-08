@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useState, useMemo, useRef } from "react";
 import StorySection from "./components/StorySection";
@@ -117,7 +117,7 @@ export default function EmmaJamesCinematic() {
 
 
 
-      // ── Scroll buttons ────────────────────────────────────────────────
+      // â”€â”€ Scroll buttons â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
       document.querySelectorAll("[data-ej-scroll]").forEach((btn) => {
         btn.addEventListener("click", () => {
           const target = (btn as HTMLElement).dataset.ejScroll;
@@ -126,7 +126,7 @@ export default function EmmaJamesCinematic() {
       });
 
 
-      // ── Wall Mask (Clip Path) ─────────────────────────────────────────
+      // â”€â”€ Wall Mask (Clip Path) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
       // We calculate a precise SVG clip-path for the background wall to punch the door hole.
       // This is vastly more reliable than CSS mix-blend-mode across different browsers.
       const updateWallMask = () => {
@@ -160,7 +160,7 @@ export default function EmmaJamesCinematic() {
       window.addEventListener("resize", onResize);
       scrollListeners.push(() => window.removeEventListener("resize", onResize));
 
-      // ── HERO: Wedding Invitation Doors (Fly-Through Zoom) ──────────────
+      // â”€â”€ HERO: Wedding Invitation Doors (Fly-Through Zoom) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: ".ej-hero",
@@ -207,21 +207,21 @@ export default function EmmaJamesCinematic() {
         1.0
       );
 
-      // ── Camera crossfade for later sections ───────────────────────────
+      // â”€â”€ Camera crossfade for later sections â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
       gsap.to(".ej-bg-b", { opacity: 1, scale: 1.05, ease: "none", scrollTrigger: { trigger: ".ej-gallery", start: "top 80%", end: "top 20%", scrub: 1 } });
       gsap.to(".ej-bg-b", { scale: 1.18, ease: "none", scrollTrigger: { trigger: ".ej-details", start: "top 90%", end: "bottom top", scrub: 1 } });
 
-      // ── Story pin ────────────────────────────────────────────────────
+      // â”€â”€ Story pin â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
       // old story gsap removed
 
-      // ── Interlude pin ─────────────────────────────────────────────────
+      // â”€â”€ Interlude pin â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
       const interTL = gsap.timeline({ scrollTrigger: { trigger: ".ej-interlude", start: "top top", end: "+=100%", scrub: 1, pin: true } });
       interTL
         .from(".ej-giant-word", { scale: 1.35, opacity: 0, letterSpacing: "-.01em", duration: 0.6 })
         .from(".ej-interlude-copy p", { y: 40, opacity: 0, duration: 0.25 }, "<.2")
         .from(".ej-floating-date", { x: 100, opacity: 0, duration: 0.3 }, "<.1");
 
-      // ── Gallery horizontal pin ────────────────────────────────────────
+      // â”€â”€ Gallery horizontal pin â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
       const galleryTL = gsap.timeline({ scrollTrigger: { trigger: ".ej-gallery", start: "top top", end: "+=130%", scrub: 1, pin: true } });
       galleryTL
         .from(".ej-gallery-head", { y: 80, opacity: 0, duration: 0.25 })
@@ -231,7 +231,7 @@ export default function EmmaJamesCinematic() {
         }, "+=.05")
         .to(".ej-gallery-head", { y: -35, opacity: 0.25, duration: 0.3 }, "<");
 
-      // ── Details pin ───────────────────────────────────────────────────
+      // â”€â”€ Details pin â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
       const detailsTL = gsap.timeline({ scrollTrigger: { trigger: ".ej-details", start: "top top", end: "+=115%", scrub: 1, pin: true } });
       detailsTL
         .from(".ej-details-copy", { x: -100, opacity: 0, duration: 0.4 })
@@ -239,11 +239,11 @@ export default function EmmaJamesCinematic() {
         .from(".ej-detail-list > div", { y: 35, opacity: 0, stagger: 0.12, duration: 0.3 }, "<.2")
         .to(".ej-details-visual img", { scale: 1.14, ease: "none", duration: 0.8 }, "<");
 
-      // ── RSVP ─────────────────────────────────────────────────────────
+      // â”€â”€ RSVP â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
       gsap.from(".ej-rsvp-copy > *", { y: 55, opacity: 0, stagger: 0.1, duration: 1, ease: "power3.out", scrollTrigger: { trigger: ".ej-rsvp", start: "top 70%" } });
       gsap.to(".ej-rsvp-backdrop", { scale: 1, ease: "none", scrollTrigger: { trigger: ".ej-rsvp", start: "top bottom", end: "bottom top", scrub: 1 } });
 
-      // ── Cursor glow ───────────────────────────────────────────────────
+      // â”€â”€ Cursor glow â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
       const glow = document.querySelector(".ej-cursor-glow") as HTMLElement | null;
       if (glow) {
         pointerListener = (e: PointerEvent) =>
@@ -251,9 +251,9 @@ export default function EmmaJamesCinematic() {
         window.addEventListener("pointermove", pointerListener);
       }
 
-      // ── Misc ──────────────────────────────────────────────────────────
+      // â”€â”€ Misc â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
       document.querySelector(".ej-sound")?.addEventListener("click", (e) => {
-        (e.currentTarget as HTMLElement).innerHTML = "♫ <span>Sound on</span>";
+        (e.currentTarget as HTMLElement).innerHTML = "â™« <span>Sound on</span>";
       });
       document.querySelector(".ej-open-rsvp")?.addEventListener("click", () => {
         (document.querySelector(".ej-dialog") as HTMLDialogElement | null)?.showModal();
@@ -280,7 +280,7 @@ export default function EmmaJamesCinematic() {
       />
 
       <style>{`
-        /* ── Base ── */
+        /* â”€â”€ Base â”€â”€ */
         .ej-root *, .ej-root *::before, .ej-root *::after { box-sizing: border-box; }
         :root {
           --ej-cream:  #efe5d8;
@@ -303,7 +303,7 @@ export default function EmmaJamesCinematic() {
         .ej-root button { cursor: pointer; }
         .ej-root a { text-decoration: none; color: inherit; }
 
-        /* ── Cursor glow ── */
+        /* â”€â”€ Cursor glow â”€â”€ */
         .ej-cursor-glow {
           position: fixed; z-index: 90;
           width: 200px; height: 200px; border-radius: 50%;
@@ -313,7 +313,7 @@ export default function EmmaJamesCinematic() {
           mix-blend-mode: screen;
         }
 
-        /* ── Fixed camera BG (later sections) ── */
+        /* â”€â”€ Fixed camera BG (later sections) â”€â”€ */
         .ej-camera { position: fixed; inset: 0; z-index: -5; background: var(--ej-dark); overflow: hidden; }
         .ej-camera-bg { position: absolute; inset: -5%; background-position: center; background-size: cover; transform: scale(1.08); opacity: 0; will-change: transform, opacity; }
         .ej-bg-b { background-image: linear-gradient(#10120b22,#10120b72), url("/emma-james/details.jpg"); }
@@ -333,9 +333,9 @@ export default function EmmaJamesCinematic() {
 
 
 
-        /* ══════════════════════════════════════════════════════════════
-           HERO — WEDDING INVITATION DOORS
-        ══════════════════════════════════════════════════════════════ */
+        /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+           HERO â€” WEDDING INVITATION DOORS
+        â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
         .ej-hero {
           height: 100svh;
           background: #391211; /* Deep luxury burgundy environment */
@@ -500,7 +500,7 @@ export default function EmmaJamesCinematic() {
           display: block;
         }
 
-        /* ── Chapters (story, interlude, details, gallery, rsvp) ── */
+        /* â”€â”€ Chapters (story, interlude, details, gallery, rsvp) â”€â”€ */
         .ej-chapter { position: relative; min-height: 100svh; overflow: hidden; }
         .ej-chapter-index { position: absolute; top: 9vh; left: 7vw; font-size: 9px; letter-spacing: .25em; opacity: .55; }
         .ej-eyebrow { font-size: 10px; letter-spacing: .28em; text-transform: uppercase; opacity: .72; margin: 0 0 24px; }
@@ -595,7 +595,7 @@ export default function EmmaJamesCinematic() {
         .ej-dialog input, .ej-dialog select { padding: 14px 13px; border: 1px solid rgba(142,124,109,.27); background: #f8efe5; font: inherit; }
         .ej-dialog form > button { padding: 15px; border: 0; background: #27231f; color: #fff; text-transform: uppercase; letter-spacing: .16em; font-size: 10px; cursor: pointer; }
 
-        /* ── Responsive ── */
+        /* â”€â”€ Responsive â”€â”€ */
         @media (max-width: 800px) {
 
           .ej-hero-names-wrap h1 { font-size: clamp(46px,13vw,90px); }
@@ -631,9 +631,9 @@ export default function EmmaJamesCinematic() {
           }
         }
 
-        /* ══════════════════════════════════════════════════════════════
+        /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
            COUNTDOWN SECTION
-        ══════════════════════════════════════════════════════════════ */
+        â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap');
 
         .ej-countdown-section {
@@ -753,9 +753,9 @@ export default function EmmaJamesCinematic() {
         }
 
 
-        /* ══════════════════════════════════════════════════════════════
+        /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
            OUR STORY SECTION (V2)
-        ══════════════════════════════════════════════════════════════ */
+        â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
         .ej-our-story-v2 {
           position: relative;
           min-height: 100vh;
@@ -1004,10 +1004,10 @@ export default function EmmaJamesCinematic() {
 
 
         <main>
-          {/* ══════════════════════════════════════════════════════════════
-              HERO — arch hole grows through dark overlay as you scroll
+          {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+              HERO â€” arch hole grows through dark overlay as you scroll
               Exact era-residence.com mechanic
-          ══════════════════════════════════════════════════════════════ */}
+          â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
           <section className="ej-hero" id="ej-home">
 
             {/* Destination Image (Always full screen, sits in back) */}
@@ -1058,10 +1058,10 @@ export default function EmmaJamesCinematic() {
             {/* Template Contact Button (Centered at the top for maximum visibility) */}
             <div className="absolute top-12 left-1/2 -translate-x-1/2 z-[100]">
               <a 
-                href="https://instagram.com/your_instagram_handle" target="_blank" rel="noopener noreferrer"
+                href="https://www.instagram.com/digitalweddingwebpage/" target="_blank" rel="noopener noreferrer"
                 className="px-8 py-4 border border-[#C9A96E] rounded-full text-xs tracking-[0.2em] uppercase text-[#1A1614] bg-[#C9A96E] font-bold shadow-[0_0_30px_rgba(201,169,110,0.5)] hover:scale-105 hover:bg-[#DBC396] transition-all flex items-center gap-2 whitespace-nowrap"
               >
-                Use This Template <span>↗</span>
+                Use This Template <span>â†—</span>
               </a>
             </div>
           </section>
@@ -1181,11 +1181,11 @@ export default function EmmaJamesCinematic() {
               <p className="ej-eyebrow">THE WEDDING</p>
               <h2>Meet us<br /><em>in the garden.</em></h2>
               <div className="ej-detail-list">
-                <div><span>WHEN</span><strong>14 June 2026<br /><small>Ceremony · 4:30 PM</small></strong></div>
+                <div><span>WHEN</span><strong>14 June 2026<br /><small>Ceremony Â· 4:30 PM</small></strong></div>
                 <div><span>WHERE</span><strong>The Rosewood Estate<br /><small>Napa Valley, California</small></strong></div>
                 <div><span>WEAR</span><strong>Garden Formal<br /><small>Soft evening tones</small></strong></div>
               </div>
-              <a className="ej-text-link" href="#ej-rsvp">Save your place <span>↗</span></a>
+              <a className="ej-text-link" href="#ej-rsvp">Save your place <span>â†—</span></a>
             </div>
             <div className="ej-details-visual">
               <div className="ej-arch">
@@ -1236,18 +1236,18 @@ export default function EmmaJamesCinematic() {
               <p className="ej-eyebrow">04 / THE INVITATION</p>
               <h2>Will you<br /><em>join us?</em></h2>
               <p>Come for the ceremony, stay for dinner, dancing, and all the little moments after.</p>
-              <button className="ej-rsvp-button ej-open-rsvp">RSVP <span>↗</span></button>
+              <button className="ej-rsvp-button ej-open-rsvp">RSVP <span>â†—</span></button>
             </div>
             <div className="ej-closing-mark">E <i>&</i> J</div>
           </section>
 
-          {/* ── Love This Experience Section ── */}
+          {/* â”€â”€ Love This Experience Section â”€â”€ */}
           <section className="w-full bg-[#0a0b08] pt-32 pb-24 flex flex-col items-center border-t border-white/5 relative z-50">
             <h2 className="text-4xl md:text-5xl font-light text-[#FAF7F2] mb-10 text-center" style={{ fontFamily: 'Cormorant Garamond, serif' }}>
               Love this <em className="italic text-[#C9A96E]">experience?</em>
             </h2>
             <a 
-              href="https://instagram.com/your_instagram_handle" target="_blank" rel="noopener noreferrer" 
+              href="https://www.instagram.com/digitalweddingwebpage/" target="_blank" rel="noopener noreferrer" 
               className="px-10 py-5 border border-[#C9A96E] rounded-full text-xs tracking-[0.2em] uppercase text-[#1A1614] bg-[#C9A96E] font-bold shadow-[0_0_40px_rgba(201,169,110,0.4)] hover:scale-105 hover:bg-[#DBC396] transition-all text-center"
               style={{ fontFamily: "var(--ej-sans)" }}
             >
@@ -1255,10 +1255,10 @@ export default function EmmaJamesCinematic() {
             </a>
           </section>
 
-          {/* ── Divider ── */}
+          {/* â”€â”€ Divider â”€â”€ */}
           <div className="w-full h-px bg-gradient-to-r from-transparent via-[#C9A96E]/20 to-transparent relative z-50" />
 
-          {/* ── Explore Other Experiences ── */}
+          {/* â”€â”€ Explore Other Experiences â”€â”€ */}
           <div className="relative z-50 bg-[#FAF8F5]">
             {/* The component already has the cards (Garden, Fairytale, Superhero) */}
             <InvitationShowcase />
@@ -1273,13 +1273,13 @@ export default function EmmaJamesCinematic() {
             </div>
           </div>
 
-          {/* ── Divider ── */}
+          {/* â”€â”€ Divider â”€â”€ */}
           <div className="w-full h-px bg-gradient-to-r from-transparent via-[#C5A97B]/30 to-transparent relative z-50" />
 
-          {/* ── Footer ── */}
+          {/* â”€â”€ Footer â”€â”€ */}
           <footer className="w-full bg-[#0a0b08] py-16 flex flex-col items-center relative z-50 gap-4">
             <p style={{ fontFamily: 'Italianno, cursive', fontSize: '48px', color: 'rgba(250,247,242,0.6)', margin: 0, lineHeight: 1 }}>Emma &amp; James</p>
-            <p style={{ fontFamily: 'var(--ej-sans)', fontSize: '10px', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'rgba(250,247,242,0.3)', margin: 0 }}>Garden Romance · Digital Wedding Invitation</p>
+            <p style={{ fontFamily: 'var(--ej-sans)', fontSize: '10px', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'rgba(250,247,242,0.3)', margin: 0 }}>Garden Romance Â· Digital Wedding Invitation</p>
           </footer>
           <BackgroundMusic />
           
@@ -1294,7 +1294,7 @@ export default function EmmaJamesCinematic() {
           <button
             className="ej-dialog-close"
             onClick={(e) => (e.currentTarget.closest("dialog") as HTMLDialogElement | null)?.close()}
-          >×</button>
+          >Ã—</button>
           <p className="ej-dialog-eyebrow">EMMA &amp; JAMES</p>
           <h3>We hope you&apos;ll<br /><em>be there.</em></h3>
           <form method="dialog">

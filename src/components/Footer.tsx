@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React from "react";
 import Link from "next/link";
@@ -94,7 +94,7 @@ export default function Footer() {
             <Link href="/about" className="text-[#A0A0A0] hover:text-[#C5A97B] transition-colors text-sm font-light">Our Story</Link>
             <Link href="/faqs" className="text-[#A0A0A0] hover:text-[#C5A97B] transition-colors text-sm font-light">FAQs</Link>
             <Link href="/custom-quotes" className="text-[#A0A0A0] hover:text-[#C5A97B] transition-colors text-sm font-light">Custom Quotes</Link>
-            <Link href="https://instagram.com/your_instagram_handle" target="_blank" rel="noopener noreferrer" className="text-[#A0A0A0] hover:text-[#C5A97B] transition-colors text-sm font-light">Contact Us</Link>
+            <Link href="https://www.instagram.com/digitalweddingwebpage/" target="_blank" rel="noopener noreferrer" className="text-[#A0A0A0] hover:text-[#C5A97B] transition-colors text-sm font-light">Contact Us</Link>
           </div>
 
           {/* Column 3 */}
@@ -127,13 +127,13 @@ export default function Footer() {
                 <span className="font-medium tracking-wide">Google Reviews</span>
               </div>
               <div className="text-[#8B6B3D] tracking-widest text-lg mb-2 flex justify-center md:justify-start">
-                ★★★★★
+                â˜…â˜…â˜…â˜…â˜…
               </div>
               <a 
                 href="#" 
                 className="text-[10px] tracking-[0.15em] uppercase text-[#A0A0A0] hover:text-[#C5A97B] transition-colors inline-block mt-1 font-semibold"
               >
-                READ OUR REVIEWS →
+                READ OUR REVIEWS â†’
               </a>
             </div>
           </div>
@@ -144,7 +144,7 @@ export default function Footer() {
           <div className="flex flex-col sm:flex-row items-center sm:space-x-8 space-y-4 sm:space-y-0 text-[13px] text-[#A0A0A0] font-light">
             <div>
               <span className="block text-[#8B6B3D] text-[10px] tracking-[0.2em] font-semibold uppercase mb-1">Email</span>
-              <a href="https://instagram.com/your_instagram_handle" target="_blank" rel="noopener noreferrer" className="hover:text-[#C5A97B] transition-colors">@your_instagram_handle</a>
+              <a href="https://www.instagram.com/digitalweddingwebpage/" target="_blank" rel="noopener noreferrer" className="hover:text-[#C5A97B] transition-colors">@digitalweddingwebpage</a>
             </div>
             <div className="hidden sm:block text-[#3A3A3A]">|</div>
             <div>
@@ -159,7 +159,7 @@ export default function Footer() {
 
         {/* Footer Bottom */}
         <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0 text-xs text-[#8A8A8A] font-light">
-          <p>© 2026 The Wedding Experience. All rights reserved.</p>
+          <p>Â© 2026 The Wedding Experience. All rights reserved.</p>
           <div className="flex space-x-6">
             <Link href="/privacy-policy" className="hover:text-[#C5A97B] transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-[#C5A97B] transition-colors">Terms & Conditions</Link>

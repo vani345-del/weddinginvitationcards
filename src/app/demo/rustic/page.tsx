@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useEffect, useState, useRef } from 'react';
 import NightSky from "./components/NightSky";
@@ -78,13 +78,13 @@ export default function SuperheroWeddingDemo() {
          <VenueBlock />
       </section>
 
-      {/* ── Love This Experience Section ── */}
+      {/* â”€â”€ Love This Experience Section â”€â”€ */}
       <section className="w-full bg-[#0a0b08] pt-32 pb-24 flex flex-col items-center border-t border-white/5 relative z-50">
         <h2 className="text-4xl md:text-5xl font-light text-[#FAF7F2] mb-10 text-center" style={{ fontFamily: 'Cormorant Garamond, serif' }}>
           Love this <em className="italic text-[#C9A96E]">experience?</em>
         </h2>
         <a 
-          href="https://instagram.com/your_instagram_handle" target="_blank" rel="noopener noreferrer" 
+          href="https://www.instagram.com/digitalweddingwebpage/" target="_blank" rel="noopener noreferrer" 
           className="px-10 py-5 border border-[#C9A96E] rounded-full text-xs tracking-[0.2em] uppercase text-[#1A1614] bg-[#C9A96E] font-bold shadow-[0_0_40px_rgba(201,169,110,0.4)] hover:scale-105 hover:bg-[#DBC396] transition-all text-center"
           style={{ fontFamily: "sans-serif" }}
         >
@@ -92,10 +92,10 @@ export default function SuperheroWeddingDemo() {
         </a>
       </section>
 
-      {/* ── Divider ── */}
+      {/* â”€â”€ Divider â”€â”€ */}
       <div className="w-full h-px bg-gradient-to-r from-transparent via-[#C9A96E]/20 to-transparent relative z-50" />
 
-      {/* ── Explore Other Experiences ── */}
+      {/* â”€â”€ Explore Other Experiences â”€â”€ */}
       <div className="relative z-50 bg-[#FAF8F5]">
         <InvitationShowcase />
 
@@ -109,13 +109,13 @@ export default function SuperheroWeddingDemo() {
         </div>
       </div>
 
-      {/* ── Divider ── */}
+      {/* â”€â”€ Divider â”€â”€ */}
       <div className="w-full h-px bg-gradient-to-r from-transparent via-[#C5A97B]/30 to-transparent relative z-50" />
 
       {/* SECTION 4: Template Footer */}
       <footer className="w-full bg-[#050814] py-16 flex flex-col items-center relative z-50 gap-4">
         <h2 style={{ fontFamily: "'Cinzel', serif", fontSize: '28px', color: '#fff', letterSpacing: '6px', margin: 0 }}>PETER &amp; MARY JANE</h2>
-        <p style={{ fontFamily: 'var(--ej-sans)', fontSize: '10px', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', margin: 0 }}>Superhero Edition · Digital Wedding Invitation</p>
+        <p style={{ fontFamily: 'var(--ej-sans)', fontSize: '10px', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', margin: 0 }}>Superhero Edition Â· Digital Wedding Invitation</p>
       </footer>
       
       {/* Main Site Footer */}
@@ -790,12 +790,12 @@ function CountdownBlock({ onGoToDetails }: { onGoToDetails: () => void }) {
         <img src="/spiderwomen1.png" alt="Bride" className="c-female" />
       </div>
 
-      <p className="countdown-eyebrow">✦ OUR NEXT CHAPTER ✦</p>
+      <p className="countdown-eyebrow">âœ¦ OUR NEXT CHAPTER âœ¦</p>
       <h2 className="cinematic-heading">THE BIG DAY</h2>
       <h3 className="cinematic-names">{WEDDING_DATA.coupleNames}</h3>
       
       <div className="cinematic-divider">
-        ✦ <div className="divider-line"></div> ✦
+        âœ¦ <div className="divider-line"></div> âœ¦
       </div>
 
       <div className="timer-glass-grid">
@@ -860,7 +860,7 @@ function DetailsBlock({ onGoToVenue }: { onGoToVenue: () => void }) {
          <h2 className="cinematic-heading details-heading">THE DAY WE SAY I DO</h2>
          <h3 className="cinematic-names">{WEDDING_DATA.coupleNames}</h3>
          <div className="cinematic-divider" style={{ margin: '20px auto 50px auto' }}>
-            ✦ <div className="divider-line" style={{ width: '120px' }}></div> ✦
+            âœ¦ <div className="divider-line" style={{ width: '120px' }}></div> âœ¦
          </div>
       </div>
 

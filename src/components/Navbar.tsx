@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
@@ -48,7 +48,7 @@ export default function Navbar() {
         {/* Desktop CTA */}
         <div className="hidden md:block">
           <Link
-            href="https://instagram.com/your_instagram_handle" target="_blank" rel="noopener noreferrer"
+            href="https://www.instagram.com/digitalweddingwebpage/" target="_blank" rel="noopener noreferrer"
             className="px-6 py-2.5 border border-gold text-gold text-xs font-medium tracking-widest uppercase hover:bg-gold hover:text-ivory transition-colors duration-300"
           >
             Get In Touch
@@ -74,7 +74,7 @@ export default function Navbar() {
       >
         <div className="px-6 py-8 flex flex-col space-y-6 text-center">
           <Link
-            href="https://instagram.com/your_instagram_handle" target="_blank" rel="noopener noreferrer"
+            href="https://www.instagram.com/digitalweddingwebpage/" target="_blank" rel="noopener noreferrer"
             className="inline-block mt-4 mx-auto px-8 py-3 bg-gold text-ivory text-xs font-semibold tracking-widest uppercase transition-colors"
           >
             Get In Touch

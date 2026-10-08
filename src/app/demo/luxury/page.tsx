@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import dynamic from "next/dynamic";
 import React, { useState, useEffect } from "react";
@@ -83,7 +83,7 @@ export default function LuxuryDemo() {
           --lux-accent: #8c7343;
         }
 
-        /* ── COUNTDOWN SECTION ── */
+        /* â”€â”€ COUNTDOWN SECTION â”€â”€ */
         .lux-countdown {
           padding: 12vh 8vw; background: #1a2618; text-align: center;
           position: relative; overflow: hidden;
@@ -121,7 +121,7 @@ export default function LuxuryDemo() {
           text-transform: uppercase; color: rgba(253, 251, 247, 0.7); font-weight: 600;
         }
 
-        /* ── GALLERY SECTION ── */
+        /* â”€â”€ GALLERY SECTION â”€â”€ */
         .lux-gallery {
           padding: 12vh 8vw 15vh; background: #F8F4EC;
         }
@@ -158,7 +158,7 @@ export default function LuxuryDemo() {
           .lux-gal-item { width: 100%; aspect-ratio: 4/3 !important; }
         }
 
-        /* ── RSVP & MAP SECTION ── */
+        /* â”€â”€ RSVP & MAP SECTION â”€â”€ */
         .lux-rsvp-container {
           background: #1a2618; color: #fdfbf7; position: relative; overflow: hidden;
           padding: 12vh 8vw; border-top: 1px solid rgba(201,169,110,0.2);
@@ -201,7 +201,7 @@ export default function LuxuryDemo() {
         .lux-rsvp-floral-left { position: absolute; bottom: 0; left: -5vw; height: 50vh; opacity: 0.15; z-index: 1; pointer-events: none; }
         .lux-rsvp-floral-right { position: absolute; bottom: 0; right: -5vw; height: 60vh; opacity: 0.15; z-index: 1; pointer-events: none; }
 
-        /* ── FOOTER ── */
+        /* â”€â”€ FOOTER â”€â”€ */
         .lux-footer {
           background: #0d1508; padding: 10vh 8vw; text-align: center; border-top: 1px solid rgba(201,169,110,0.15);
           display: flex; flex-direction: column; align-items: center; gap: 20px; position: relative; overflow: hidden;
@@ -313,13 +313,13 @@ export default function LuxuryDemo() {
         <img className="lux-rsvp-floral-right" src="/illustrated_wedding_assets/righttree.png" alt="" aria-hidden="true" />
       </section>
 
-      {/* ── Love This Experience Section ── */}
+      {/* â”€â”€ Love This Experience Section â”€â”€ */}
       <section className="w-full bg-[#0a0b08] pt-32 pb-24 flex flex-col items-center border-t border-white/5 relative z-50">
         <h2 className="text-4xl md:text-5xl font-light text-[#FAF7F2] mb-10 text-center" style={{ fontFamily: 'Cormorant Garamond, serif' }}>
           Love this <em className="italic text-[#C9A96E]">experience?</em>
         </h2>
         <a 
-          href="https://instagram.com/your_instagram_handle" target="_blank" rel="noopener noreferrer" 
+          href="https://www.instagram.com/digitalweddingwebpage/" target="_blank" rel="noopener noreferrer" 
           className="px-10 py-5 border border-[#C9A96E] rounded-full text-xs tracking-[0.2em] uppercase text-[#1A1614] bg-[#C9A96E] font-bold shadow-[0_0_40px_rgba(201,169,110,0.4)] hover:scale-105 hover:bg-[#DBC396] transition-all text-center"
           style={{ fontFamily: "sans-serif" }}
         >
@@ -327,10 +327,10 @@ export default function LuxuryDemo() {
         </a>
       </section>
 
-      {/* ── Divider ── */}
+      {/* â”€â”€ Divider â”€â”€ */}
       <div className="w-full h-px bg-gradient-to-r from-transparent via-[#C9A96E]/20 to-transparent relative z-50" />
 
-      {/* ── Explore Other Experiences ── */}
+      {/* â”€â”€ Explore Other Experiences â”€â”€ */}
       <div className="relative z-50 bg-[#FAF8F5]">
         <InvitationShowcase />
 
@@ -344,13 +344,13 @@ export default function LuxuryDemo() {
         </div>
       </div>
 
-      {/* ── Divider ── */}
+      {/* â”€â”€ Divider â”€â”€ */}
       <div className="w-full h-px bg-gradient-to-r from-transparent via-[#C5A97B]/30 to-transparent relative z-50" />
 
       {/* SECTION 6: Template Footer */}
       <footer className="lux-footer relative z-50">
         <h2 className="lux-footer-names">Emma <span>&amp;</span> James</h2>
-        <p className="lux-footer-copy">20 March 2028 — Mumbai — With love &amp; gratitude</p>
+        <p className="lux-footer-copy">20 March 2028 â€” Mumbai â€” With love &amp; gratitude</p>
       </footer>
       
       {/* Main Site Footer */}

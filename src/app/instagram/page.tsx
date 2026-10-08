@@ -12,7 +12,7 @@ export const metadata = {
 export default function InstagramLandingPage() {
   return (
     <main className="min-h-screen bg-[#FAF8F5] flex flex-col overflow-x-hidden pt-12 md:pt-20">
-      <Navbar />
+
 
       {/* â”€â”€ Instagram Lead Hero Section â”€â”€ */}
       <section className="relative w-full pt-16 pb-16 md:pt-28 md:pb-24 flex flex-col items-center justify-center text-center px-6">
@@ -102,9 +102,6 @@ export default function InstagramLandingPage() {
           </a>
         </div>
       </section>
-
-      {/* â”€â”€ Footer â”€â”€ */}
-      <Footer />
     </main>
   );
 }

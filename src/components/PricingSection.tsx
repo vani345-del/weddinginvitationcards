@@ -1,56 +1,26 @@
-﻿"use client";
+"use client";
 
 import { motion } from "framer-motion";
 import Link from "next/link";
 
 const PLANS = [
   {
-    duration: "1 MONTH",
-    price: "$199",
+    duration: "3 MONTHS LIVE LINK",
+    badge: "ANY DESIGN",
+    price: "$49",
     billing: "One-time payment",
-    desc: "Perfect for couples who need their invitation live around the wedding celebration.",
+    desc: "Everything you need for the perfect digital invitation.",
     features: [
+      "Any template design of your choice",
       "Personalized wedding experience",
-      "Choose from our available designs",
       "Names, photos & wedding details",
       "Interactive wedding sections",
       "Mobile & desktop responsive",
       "Shareable invitation link",
-      "Live for 1 month",
-    ],
-    buttonText: "CHOOSE 1 MONTH",
-    highlight: false,
-  },
-  {
-    duration: "3 MONTHS",
-    badge: "MOST POPULAR",
-    price: "$299",
-    billing: "One-time payment",
-    desc: "More time for your guests to revisit your story before and after the celebration.",
-    features: [
-      "Everything in 1 Month",
       "Live for 3 months",
-      "Personalized content & photos",
-      "Interactive wedding experience",
-      "Shareable link for guests",
     ],
-    buttonText: "CHOOSE 3 MONTHS",
+    buttonText: "GET STARTED",
     highlight: true,
-  },
-  {
-    duration: "6 MONTHS",
-    price: "$499",
-    billing: "One-time payment",
-    desc: "Keep your wedding story online long after the celebration.",
-    features: [
-      "Everything in 3 Months",
-      "Live for 6 months",
-      "Extended guest access",
-      "Keep your digital wedding story available longer",
-      "Shareable link",
-    ],
-    buttonText: "CHOOSE 6 MONTHS",
-    highlight: false,
   }
 ];
 
@@ -71,7 +41,7 @@ export default function PricingSection() {
   return (
     <section className="relative w-full pt-12 md:pt-16 lg:pt-20 pb-16 md:pb-20 lg:pb-24 bg-[#FAF8F5] overflow-hidden">
       
-      {/* â”€â”€ Subtle Background Decor â”€â”€ */}
+      {/* ── Subtle Background Decor ── */}
       <div className="absolute inset-0 pointer-events-none z-0">
         <div className="absolute -top-40 right-20 w-[600px] h-[600px] bg-[#F4E8E1]/30 rounded-full blur-[120px]" />
         <div className="absolute bottom-20 -left-20 w-[500px] h-[500px] bg-[#E8DDD0]/20 rounded-full blur-[100px]" />
@@ -87,7 +57,7 @@ export default function PricingSection() {
 
       <div className="relative z-10 w-full max-w-[1300px] mx-auto px-6 md:px-12 xl:px-16">
         
-        {/* â”€â”€ Header â”€â”€ */}
+        {/* ── Header ── */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -104,26 +74,26 @@ export default function PricingSection() {
           </div>
 
           <h2 className="font-serif text-4xl sm:text-5xl md:text-[4rem] text-[#1A1A1A] font-light leading-[1.1] tracking-tight mb-6">
-            Choose How Long <br className="hidden sm:block" />
-            <em className="italic not-italic font-light text-[#5A4A3A]">Your Story Lives</em>
+            Simple, Transparent <br className="hidden sm:block" />
+            <em className="italic not-italic font-light text-[#5A4A3A]">Pricing</em>
           </h2>
           
           <p className="font-sans text-sm md:text-base lg:text-[17px] text-[#5A5A5A] max-w-2xl font-light leading-relaxed">
-            Every invitation is personalized with your names, photos, wedding details, and chosen experience. Select the live-link duration that works for you.
+            Every invitation is personalized with your names, photos, wedding details, and chosen experience. 
           </p>
           
           <p className="font-serif italic text-[#8B6B3D] text-lg mt-8">
-            Every plan includes a personalized wedding experience.
+            One beautiful experience for one accessible price.
           </p>
         </motion.div>
 
-        {/* â”€â”€ Pricing Cards â”€â”€ */}
+        {/* ── Pricing Cards ── */}
         <motion.div 
           variants={containerVariants}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-50px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 xl:gap-10 items-center"
+          className="max-w-md mx-auto"
         >
           {PLANS.map((plan, i) => (
             <motion.div 
@@ -131,7 +101,7 @@ export default function PricingSection() {
               variants={itemVariants}
               className={`relative flex flex-col h-full bg-white rounded-3xl transition-all duration-500 hover:-translate-y-2 
                 ${plan.highlight 
-                  ? "border border-[#C5A97B] shadow-[0_20px_50px_rgba(197,169,123,0.15)] lg:-mt-8 lg:mb-8 relative z-20" 
+                  ? "border border-[#C5A97B] shadow-[0_20px_50px_rgba(197,169,123,0.15)] relative z-20" 
                   : "border border-[#E8DDD0] shadow-[0_10px_40px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] z-10"
                 }
               `}
@@ -150,15 +120,18 @@ export default function PricingSection() {
                 </h3>
                 
                 <div className="flex flex-col items-center mb-6">
-                  <span className="font-serif text-5xl md:text-6xl text-[#1A1A1A] font-light tracking-tight mb-2">
-                    {plan.price}
-                  </span>
+                  <div className="flex items-start">
+                    <span className="font-serif text-3xl md:text-4xl text-[#1A1A1A] font-light mt-1 mr-1">starts at</span>
+                    <span className="font-serif text-5xl md:text-6xl text-[#1A1A1A] font-light tracking-tight mb-2">
+                      {plan.price}
+                    </span>
+                  </div>
                   <span className="font-sans text-[11px] text-[#8A8A8A] uppercase tracking-wider">
                     {plan.billing}
                   </span>
                 </div>
 
-                <p className="font-sans text-sm text-[#5A5A5A] leading-relaxed text-center font-light mb-8 h-[60px]">
+                <p className="font-sans text-sm text-[#5A5A5A] leading-relaxed text-center font-light mb-8 h-[60px] flex items-center justify-center">
                   {plan.desc}
                 </p>
 
@@ -194,7 +167,7 @@ export default function PricingSection() {
           ))}
         </motion.div>
 
-        {/* â”€â”€ Tiny Note Under Cards â”€â”€ */}
+        {/* ── Tiny Note Under Cards ── */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -207,7 +180,7 @@ export default function PricingSection() {
           </p>
         </motion.div>
 
-        {/* â”€â”€ Custom Quote Section â”€â”€ */}
+        {/* ── Custom Quote Section ── */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
